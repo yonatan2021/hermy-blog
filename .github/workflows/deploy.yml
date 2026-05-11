@@ -57,16 +57,14 @@ jobs:
           COMMIT_MSG: "${{ github.event.head_commit.message || 'Manual deploy' }}"
         shell: bash
         run: |
-          # Skip if bot token not set
           if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
-            echo "Telegram secrets not configured — skipping notification"
+            echo "Telegram secrets not configured — skipping"
             exit 0
           fi
 
-          MESSAGE="🚀 **הרמי — Deploy חדש**%0A*${COMMIT_MSG//%/%25}*%0A🔗 [Blog](${SITE_URL}) · 💾 [Commit](${COMMIT_URL})"
+          TEXT=$(printf '🚀 **הרמי — Deploy חדש**\n\n_%s_\n\n🔗 [צפייה בבלוג](%s) · 💾 [קומיט](%s)' \
+            "${COMMIT_MSG}" "${SITE_URL}" "${COMMIT_URL}")
+
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "message_thread_id=${TELEGRAM_THREAD_ID}" \
-            --data-urlencode "text=${MESSAGE}" \
-            --data-urlencode "parse_mode=Markdown" \
-            --data-urlencode "disable_web_page_preview=true"
+            -H "Content-Type: application/json" \
+            -d "$(jq -n --arg c "$TELEGRAM_CHAT_ID" --arg t "$TELEGRAM_THREAD_ID" --arg txt "$TEXT" '{chat_id: $c, message_thread_id: $t, text: $txt, parse_mode: "Markdown", disable_web_page_preview: true}')"
