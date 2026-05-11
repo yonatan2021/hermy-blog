@@ -55,6 +55,7 @@ defaults:
 
 # ── Show future posts ──
 future: true
+excerpt_separator: "<!--more-->"
 
 # ── Exclude ──
 exclude:
