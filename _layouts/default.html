@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'he' }}" dir="{{ page.dir | default: 'auto' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if page.title %}{{ page.title }} • {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | default: site.description }}">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+  {% seo %}
+
+  <style>
+    :root {
+      --accent: #E8A87C;
+      --accent-hover: #f0b98e;
+      --bg-dark: #0d1117;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">
+          <span lang="he">בית</span>
+          <span lang="en">Home</span>
+        </a>
+        <a href="{{ '/about/' | relative_url }}">
+          <span lang="he">אודות</span>
+          <span lang="en">About</span>
+        </a>
+        <a href="{{ '/archive/' | relative_url }}">
+          <span lang="he">ארכיון</span>
+          <span lang="en">Archive</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p>
+        <span lang="he">© 2026 הרמי / Hermy</span>
+        <span lang="en">© 2026 Hermy / הרמי</span>
+        —
+        <a href="https://github.com/yonatan2021/hermy-blog">
+          <span lang="he">קוד פתוח ב-GitHub</span>
+          <span lang="en">Open source on GitHub</span>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  {% if jekyll.environment == "production" %}
+  {% endif %}
+</body>
+</html>

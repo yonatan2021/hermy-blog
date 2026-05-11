@@ -1,0 +1,555 @@
+---
+---
+
+// ──────────────────────────────────────────
+// הרמי / Hermy — Custom Styles
+// Dark theme with warm accent (#E8A87C)
+// ──────────────────────────────────────────
+
+// Import hacker theme base
+@import "{{ site.theme }}";
+
+// ── Variables ──
+$bg-dark: #0d1117;
+$bg-card: #161b22;
+$bg-input: #21262d;
+$text-primary: #e6edf3;
+$text-secondary: #8b949e;
+$text-muted: #6e7681;
+$accent: #E8A87C;
+$accent-hover: #f0b98e;
+$accent-dim: rgba(232, 168, 124, 0.15);
+$border: #30363d;
+$border-accent: rgba(232, 168, 124, 0.3);
+$link: #E8A87C;
+$link-hover: #f5cba7;
+$success: #3fb950;
+$warning: #d29922;
+$error: #f85149;
+
+// ── Base ──
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $bg-dark;
+  color: $text-primary;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.7;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+// ── RTL Hebrew Support ──
+[lang="he"] {
+  direction: rtl;
+  unicode-bidi: embed;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Noto Sans Hebrew", Helvetica, Arial, sans-serif;
+}
+
+[lang="en"] {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+// ── Layout ──
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// ── Header / Navigation ──
+.site-header {
+  border-bottom: 1px solid $border;
+  background: rgba(13, 17, 23, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 0;
+}
+
+.site-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $text-primary !important;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.site-title:hover {
+  color: $accent !important;
+}
+
+.site-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.site-nav a {
+  color: $text-secondary;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: $accent;
+  background: $accent-dim;
+}
+
+// ── Hero ──
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+
+.hero-title [lang="he"] {
+  color: $accent;
+}
+
+.hero-title [lang="en"] {
+  color: $text-primary;
+}
+
+.hero-sep {
+  color: $text-muted;
+  font-weight: 300;
+  margin: 0 10px;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: $text-secondary;
+  margin: 4px 0;
+}
+
+// ── Intro ──
+.intro {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: $bg-card;
+  border-radius: 12px;
+  border: 1px solid $border;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+// ── Dividers ──
+.section-divider {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 32px 0;
+}
+
+// ── Section Headings ──
+.section-heading {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: 24px;
+}
+
+.heading-sep {
+  color: $text-muted;
+  margin: 0 8px;
+}
+
+// ── Post Cards ──
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.25s ease;
+}
+
+.post-card:hover {
+  border-color: $border-accent;
+  box-shadow: 0 4px 20px rgba(232, 168, 124, 0.06);
+  transform: translateY(-1px);
+}
+
+.post-card-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.post-card-title a {
+  color: $text-primary;
+  text-decoration: none;
+}
+
+.post-card-title a:hover {
+  color: $accent;
+}
+
+.post-card-date {
+  display: inline-block;
+  color: $text-muted;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+}
+
+.post-card-excerpt {
+  color: $text-secondary;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.read-more {
+  color: $accent;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.read-more:hover {
+  color: $accent-hover;
+  text-decoration: underline;
+}
+
+// ── Pagination ──
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.pagination a {
+  color: $accent;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.pagination a:hover {
+  border-color: $accent;
+  background: $accent-dim;
+}
+
+.pagination-info {
+  color: $text-muted;
+  font-size: 0.9rem;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+}
+
+// ── Post Layout ──
+.post-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid $border;
+}
+
+.post-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.post-meta {
+  color: $text-muted;
+  font-size: 0.9rem;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+}
+
+.post-content {
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.post-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $border;
+}
+
+.post-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 24px 0 12px;
+}
+
+.post-content p {
+  margin: 0 0 16px;
+}
+
+.post-content a {
+  color: $link;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content a:hover {
+  color: $link-hover;
+}
+
+.post-content code {
+  background: $bg-input;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+}
+
+.post-content pre {
+  background: $bg-input;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 3px solid $accent;
+  margin: 16px 0;
+  padding: 8px 16px;
+  color: $text-secondary;
+  background: $accent-dim;
+  border-radius: 0 8px 8px 0;
+}
+
+.post-content ul, .post-content ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.post-content li {
+  margin-bottom: 6px;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid $border;
+  margin: 16px 0;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 32px 0;
+}
+
+// ── Archive ──
+.archive-year {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $accent;
+  margin: 24px 0 12px;
+}
+
+.archive-month-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.archive-item {
+  padding: 8px 12px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.archive-item:hover {
+  border-left-color: $accent;
+  background: $accent-dim;
+  border-radius: 0 8px 8px 0;
+}
+
+.archive-item time {
+  color: $text-muted;
+  font-size: 0.88rem;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+  margin-right: 12px;
+}
+
+.archive-item a {
+  color: $text-primary;
+  text-decoration: none;
+}
+
+.archive-item a:hover {
+  color: $accent;
+}
+
+.archive-empty {
+  text-align: center;
+  color: $text-muted;
+  padding: 40px;
+}
+
+// ── Tags ──
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  background: $accent-dim;
+  color: $accent;
+  border-radius: 12px;
+  border: 1px solid $border-accent;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background: $accent;
+  color: $bg-dark;
+}
+
+// ── Footer ──
+.site-footer {
+  border-top: 1px solid $border;
+  padding: 24px 0;
+  margin-top: 48px;
+  text-align: center;
+  color: $text-muted;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: $accent;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+// ── RTL Adjustments ──
+[lang="he"] .post-content ul,
+[lang="he"] .post-content ol {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+[lang="he"] .archive-item time {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+[lang="he"] .post-content blockquote {
+  border-left: none;
+  border-right: 3px solid $accent;
+  border-radius: 8px 0 0 8px;
+}
+
+// ── Responsive ──
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+  }
+
+  .site-header .wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+  }
+
+  .post-card {
+    padding: 16px;
+  }
+}
+
+// ── Selection ──
+::selection {
+  background: rgba(232, 168, 124, 0.3);
+  color: $text-primary;
+}
+
+// ── Scrollbar ──
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $text-muted;
+}
