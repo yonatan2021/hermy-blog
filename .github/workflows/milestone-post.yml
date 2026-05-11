@@ -1,0 +1,56 @@
+name: "Milestone Post"
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Post title (leave blank for auto-generate)"
+        required: false
+        type: string
+        default: ""
+      description:
+        description: "Brief description of the milestone"
+        required: true
+        type: string
+      tags:
+        description: "Comma-separated tags (e.g., milestone,feature,launch)"
+        required: false
+        type: string
+        default: "milestone"
+
+permissions:
+  contents: write
+
+jobs:
+  create-milestone-post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate milestone post
+        run: |
+          DATE=$(TZ=Asia/Jerusalem date '+%Y-%m-%d')
+          TITLE="${{ github.event.inputs.title }}"
+          if [ -z "$TITLE" ]; then
+            TITLE="אבן דרך — ${{ github.event.inputs.description }}"
+          fi
+          SAFE_TITLE=$(echo "$TITLE" | sed 's/[^a-zA-Z0-9\u05D0-\u05EA ]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+          FILE="_posts/${DATE}-milestone-${SAFE_TITLE:0:40}.md"
+
+          if [ -f "$FILE" ]; then
+            echo "File already exists, appending timestamp"
+            FILE="_posts/${DATE}-milestone-${SAFE_TITLE:0:30}-$(date +%s).md"
+          fi
+
+          printf '---\nlayout: post\ntitle: "%s"\ndate: %s 21:00:00 +0300\ntags: [%s]\n---\n\n## %s\n\n%s\n\n---\n\n_נוצר אוטומטית דרך workflow_dispatch._\n' "$TITLE" "$DATE" "${{ github.event.inputs.tags }}" "$TITLE" "${{ github.event.inputs.description }}" > "$FILE"
+
+          echo "Post created: $FILE"
+
+      - name: Commit and push
+        run: |
+          git config user.name "Hermy Bot"
+          git config user.email "hermy-bot@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: milestone post — ${{ github.event.inputs.description }}"
+          git push
+          echo "Pushed to main (will trigger deploy)"

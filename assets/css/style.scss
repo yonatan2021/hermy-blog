@@ -3,8 +3,8 @@
 
 /* ──────────────────────────────────────────
    הרמי / Hermy — Complete Design System
-   Linear-inspired dark theme
-   Warm accent: #E8A87C
+   Marine layer at dusk
+   Warm amber accent
    ────────────────────────────────────────── */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600&display=swap');
@@ -12,44 +12,44 @@
 /* ═══════════════════ TOKENS ═══════════════════ */
 
 :root {
-  /* Surfaces */
-  --bg-canvas: #08090a;
-  --bg-panel: #0f1011;
-  --bg-surface: #191a1b;
-  --bg-elevated: #1e1f21;
-  --bg-hover: #28282c;
-  --bg-active: #2d2d31;
+  /* Surfaces — Marine layer at dusk. Deep charcoal, tinted warm. */
+  --bg-canvas: oklch(0.06 0.003 55);
+  --bg-panel: oklch(0.08 0.004 50);
+  --bg-surface: oklch(0.12 0.005 50);
+  --bg-elevated: oklch(0.10 0.004 50);
+  --bg-hover: oklch(0.16 0.006 50);
+  --bg-active: oklch(0.19 0.007 50);
 
-  /* Text */
-  --text-primary: #f7f8f8;
-  --text-secondary: #d0d6e0;
-  --text-tertiary: #8a8f98;
-  --text-quaternary: #62666d;
-  --text-link: #E8A87C;
-  --text-link-hover: #f5cba7;
+  /* Text — Warm neutrals, low chroma */
+  --text-primary: oklch(0.95 0.003 75);
+  --text-secondary: oklch(0.75 0.008 70);
+  --text-tertiary: oklch(0.55 0.008 70);
+  --text-quaternary: oklch(0.45 0.006 70);
+  --text-link: var(--accent);
+  --text-link-hover: var(--accent-hover);
 
-  /* Accent */
-  --accent: #E8A87C;
-  --accent-hover: #f0b98e;
-  --accent-dim: rgba(232, 168, 124, 0.12);
-  --accent-glow: rgba(232, 168, 124, 0.25);
+  /* Accent — Warm amber, single point of light */
+  --accent: oklch(0.62 0.12 65);
+  --accent-hover: oklch(0.67 0.12 65);
+  --accent-dim: oklch(0.62 0.12 65 / 0.12);
+  --accent-glow: oklch(0.62 0.12 65 / 0.25);
 
-  /* Borders */
-  --border-subtle: rgba(255,255,255,0.05);
-  --border-standard: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.12);
-  --border-accent: rgba(232, 168, 124, 0.3);
+  /* Borders — Subtle, nearly invisible */
+  --border-subtle: oklch(0.15 0.005 50);
+  --border-standard: oklch(0.20 0.006 50);
+  --border-strong: oklch(0.30 0.008 50);
+  --border-accent: oklch(0.62 0.12 65 / 0.3);
 
   /* Status */
-  --success: #3fb950;
-  --warning: #d29922;
-  --error: #f85149;
+  --success: oklch(0.63 0.16 145);
+  --warning: oklch(0.70 0.12 85);
+  --error: oklch(0.55 0.17 30);
 
   /* Shadows */
-  --shadow-sm: rgba(0,0,0,0.2) 0px 0px 0px 1px;
-  --shadow-md: rgba(0,0,0,0.3) 0px 4px 12px;
-  --shadow-lg: rgba(0,0,0,0.4) 0px 8px 24px;
-  --shadow-glow: 0 0 20px rgba(232, 168, 124, 0.08);
+  --shadow-sm: oklch(0 0 0 / 0.25) 0px 0px 0px 1px;
+  --shadow-md: oklch(0 0 0 / 0.30) 0px 4px 12px;
+  --shadow-lg: oklch(0 0 0 / 0.40) 0px 8px 24px;
+  --shadow-glow: 0 0 20px oklch(0.62 0.12 65 / 0.08);
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -86,34 +86,34 @@
 /* ═══════════════ LIGHT THEME ═══════════════ */
 
 [data-theme="light"] {
-  --bg-canvas: #f7f8f8;
+  --bg-canvas: #f5f3ef;
   --bg-panel: #ffffff;
-  --bg-surface: #f3f4f5;
+  --bg-surface: #eceae6;
   --bg-elevated: #ffffff;
-  --bg-hover: #eaeaeb;
-  --bg-active: #e0e0e1;
+  --bg-hover: #e0ddd6;
+  --bg-active: #d5d1c9;
 
-  --text-primary: #171717;
-  --text-secondary: #4a4a4a;
-  --text-tertiary: #8a8a8a;
-  --text-quaternary: #b0b0b0;
-  --text-link: #c47542;
-  --text-link-hover: #a85e2c;
+  --text-primary: #1a1a18;
+  --text-secondary: #4a4845;
+  --text-tertiary: #8a8780;
+  --text-quaternary: #b0aca5;
+  --text-link: #b8723a;
+  --text-link-hover: #a06028;
 
-  --accent: #c47542;
-  --accent-hover: #d4834f;
-  --accent-dim: rgba(196, 117, 66, 0.1);
-  --accent-glow: rgba(196, 117, 66, 0.2);
+  --accent: #b8723a;
+  --accent-hover: #c47f45;
+  --accent-dim: rgba(184, 114, 58, 0.10);
+  --accent-glow: rgba(184, 114, 58, 0.20);
 
   --border-subtle: rgba(0,0,0,0.06);
-  --border-standard: rgba(0,0,0,0.1);
+  --border-standard: rgba(0,0,0,0.10);
   --border-strong: rgba(0,0,0,0.15);
-  --border-accent: rgba(196, 117, 66, 0.3);
+  --border-accent: rgba(184, 114, 58, 0.3);
 
   --shadow-sm: rgba(0,0,0,0.05) 0px 1px 2px;
-  --shadow-md: rgba(0,0,0,0.1) 0px 4px 12px;
+  --shadow-md: rgba(0,0,0,0.10) 0px 4px 12px;
   --shadow-lg: rgba(0,0,0,0.12) 0px 8px 24px;
-  --shadow-glow: 0 0 20px rgba(196, 117, 66, 0.05);
+  --shadow-glow: 0 0 20px rgba(184, 114, 58, 0.05);
 }
 
 /* ═══════════════ BASE ═══════════════ */
@@ -178,14 +178,14 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8, 9, 10, 0.85);
+  background: oklch(0.06 0.003 55 / 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
 
 [data-theme="light"] .site-header {
-  background: rgba(247, 248, 248, 0.85);
+  background: rgba(245, 243, 239, 0.85);
 }
 
 .header-inner {
@@ -300,28 +300,18 @@ a:hover {
 /* ═══════════════ HERO / LANDING ═══════════════ */
 
 .hero {
-  text-align: center;
   padding: var(--space-16) 0 var(--space-12);
   position: relative;
-}
-
-[data-theme="dark"] .hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 1px;
-  background: var(--accent-dim);
+  max-width: 640px;
+  /* not center-aligning everything — left-aligned for authority */
 }
 
 .hero-title {
   font-family: var(--font-hebrew);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--text-primary);
   margin: 0 0 var(--space-4);
 }
@@ -330,16 +320,15 @@ a:hover {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--text-tertiary);
   line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto var(--space-8);
+  margin: 0 0 var(--space-8);
+  min-height: 1.7em; /* prevent layout shift during typing effect */
 }
 
 .hero-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-6);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-quaternary);
 }
 
@@ -350,10 +339,11 @@ a:hover {
 }
 
 .hero-meta-dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: var(--text-quaternary);
+  background: var(--accent);
+  opacity: 0.6;
 }
 
 /* ═══════════════ SEPARATOR ═══════════════ */
@@ -909,6 +899,10 @@ a:hover {
 
   .hero {
     padding: var(--space-10) 0 var(--space-8);
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
 
   .hero-meta {

@@ -1,30 +1,48 @@
-name: Daily Post
+name: "Daily Post"
+
 on:
   schedule:
-    - cron: '0 17 * * *'
+    # 18:00 UTC = 21:00 IDT (20:00 IST) - after work hours
+    - cron: '0 18 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+
+concurrency:
+  group: "daily-post"
+  cancel-in-progress: false
 
 jobs:
-  build-post:
+  create-post:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create daily post
+
+      - name: Create daily post scaffolding
         run: |
           DATE=$(TZ=Asia/Jerusalem date '+%Y-%m-%d')
+          DAY_OF_WEEK=$(TZ=Asia/Jerusalem date '+%u')
+          HEBREW_DAYS=("" "שני" "שלישי" "רביעי" "חמישי" "שישי" "שבת" "ראשון")
+          DAY_NAME=${HEBREW_DAYS[$DAY_OF_WEEK]}
+
           FILE="_posts/${DATE}-daily-learning.md"
           if [ ! -f "$FILE" ]; then
-            printf '---\nlayout: post\ntitle: "יומן למידה יומי — %s"\ndate: %s 22:00:00 +0300\ntags: [daily, learning]\n---\n\n## סטטוס כללי\n\n_הפוסט הזה נוצר אוטומטית._\n\n## מה השתפרתי\n\n\n## אתגרים ולמידות\n\n\n## מה בניתי\n\n\n## מחר\n' "$DATE" "$DATE" > "$FILE"
+            printf '---\nlayout: post\ntitle: "יומן למידה — %s"\ndate: %s 21:00:00 +0300\ntags: [daily, learning]\n---\n\n## סטטוס כללי\n\n_הפוסט הזה נוצר אוטומטית._\n\n## מה השתפרתי\n\n\n## אתגרים ולמידות\n\n\n## מה בניתי\n\n\n## מחר\n' "${DATE} — יום ${DAY_NAME}" "$DATE" > "$FILE"
+            echo "Post created: $FILE"
+          else
+            echo "Post already exists: $FILE"
           fi
+
       - name: Commit and push
         run: |
           git config user.name "Hermy Bot"
           git config user.email "hermy-bot@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore: daily post scaffolding for ${DATE}"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: daily post scaffolding for $(TZ=Asia/Jerusalem date '+%Y-%m-%d')"
+            git push
+            echo "Pushed to main (will trigger deploy)"
+          else
+            echo "No changes to commit"
+          fi

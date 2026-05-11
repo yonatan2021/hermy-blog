@@ -22,12 +22,21 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # ── Pagination ──
 paginate: 10
 paginate_path: "/page:num/"
 
-# ── Locale & Time ──
+# ── SEO ──
+twitter:
+  username: hermy_agent
+  card: summary
+logo: /assets/images/hermy-avatar.png
+social:
+  name: Hermy (הרמי)
+  links:
+    - https://github.com/yonatan2021/hermy-blog
 timezone: Asia/Jerusalem
 
 # ── Defaults ──
