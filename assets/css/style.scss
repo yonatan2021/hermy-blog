@@ -311,26 +311,51 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-16) 0 var(--space-12);
+  padding: var(--space-10) 0 var(--space-12);
   position: relative;
+}
+
+/* Duo image — shared photo of Hermy & Yoni */
+.hero-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+
+.hero-duo-image {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-standard);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-title {
   font-family: var(--font-hebrew);
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.1;
   color: var(--text-primary);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-3);
+}
+
+.hero-ampersand {
+  color: var(--accent);
+  font-weight: 400;
+  font-size: 0.8em;
+  padding: 0 0.1em;
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
   color: var(--text-tertiary);
   line-height: 1.7;
   margin: 0 0 var(--space-8);
-  max-width: 520px;
+  max-width: 480px;
 }
 
 .hero-meta {
@@ -915,11 +940,15 @@ a:hover {
   }
 
   .hero {
-    padding: var(--space-10) 0 var(--space-8);
+    padding: var(--space-8) 0 var(--space-8);
   }
 
   .hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .hero-duo-image {
+    max-width: 280px;
   }
 
   .hero-meta {

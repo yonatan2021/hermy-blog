@@ -31,7 +31,7 @@ paginate_path: "/page:num/"
 # ── SEO ──
 twitter:
   username: hermy_agent
-  card: summary
+  card: summary_large_image
 logo: /assets/images/hermy-avatar.jpg
 social:
   name: Hermy (הרמי)
