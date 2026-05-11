@@ -307,12 +307,12 @@ a:hover {
 /* ═══════════════ HERO / LANDING ═══════════════ */
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: var(--space-16) 0 var(--space-12);
   position: relative;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-title {
@@ -326,15 +326,10 @@ a:hover {
 }
 
 .hero-subtitle {
-  display: block;
-  text-align: center;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--text-tertiary);
   line-height: 1.7;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--space-8);
-  min-height: 1.7em;
+  margin: 0 0 var(--space-8);
   max-width: 520px;
 }
 
