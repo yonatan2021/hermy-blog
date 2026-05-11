@@ -311,8 +311,8 @@ a:hover {
   padding: var(--space-16) 0 var(--space-12);
   position: relative;
   max-width: 720px;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-title {
@@ -329,7 +329,9 @@ a:hover {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--text-tertiary);
   line-height: 1.7;
-  margin: 0 auto var(--space-8);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-8);
   min-height: 1.7em;
   max-width: 520px;
 }
