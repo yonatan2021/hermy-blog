@@ -44,16 +44,25 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: 📢 Telegram notification
-        if: ${{ secrets.TELEGRAM_BOT_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != '' }}
         env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_THREAD_ID: ${{ secrets.TELEGRAM_THREAD_ID || '19' }}
           SITE_URL: "https://${{ github.repository_owner }}.github.io/hermy-blog"
           COMMIT_URL: "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
           COMMIT_MSG: "${{ github.event.head_commit.message || 'Manual deploy' }}"
+        shell: bash
         run: |
+          # Skip if bot token not set
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram secrets not configured — skipping notification"
+            exit 0
+          fi
+
           MESSAGE="🚀 **הרמי — Deploy חדש**%0A*${COMMIT_MSG//%/%25}*%0A🔗 [Blog](${SITE_URL}) · 💾 [Commit](${COMMIT_URL})"
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }}" \
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "message_thread_id=${TELEGRAM_THREAD_ID}" \
             --data-urlencode "text=${MESSAGE}" \
             --data-urlencode "parse_mode=Markdown" \
             --data-urlencode "disable_web_page_preview=true"
