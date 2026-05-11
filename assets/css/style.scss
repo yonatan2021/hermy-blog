@@ -12,33 +12,37 @@
 /* ═══════════════════ TOKENS ═══════════════════ */
 
 :root {
-  /* Surfaces — Marine layer at dusk. Deep charcoal, tinted warm. */
-  --bg-canvas: oklch(0.06 0.003 55);
-  --bg-panel: oklch(0.08 0.004 50);
-  --bg-surface: oklch(0.12 0.005 50);
-  --bg-elevated: oklch(0.10 0.004 50);
-  --bg-hover: oklch(0.16 0.006 50);
-  --bg-active: oklch(0.19 0.007 50);
+  /* Surfaces — Warm dark, not pitch black */
+  --bg-canvas: oklch(0.08 0.005 55);
+  --bg-panel: oklch(0.10 0.006 50);
+  --bg-surface: oklch(0.14 0.007 50);
+  --bg-elevated: oklch(0.12 0.006 50);
+  --bg-hover: oklch(0.18 0.008 50);
+  --bg-active: oklch(0.21 0.009 50);
 
-  /* Text — Warm neutrals, low chroma */
+  /* Text — Warm neutrals */
   --text-primary: oklch(0.95 0.003 75);
-  --text-secondary: oklch(0.75 0.008 70);
-  --text-tertiary: oklch(0.55 0.008 70);
-  --text-quaternary: oklch(0.45 0.006 70);
+  --text-secondary: oklch(0.78 0.008 70);
+  --text-tertiary: oklch(0.58 0.008 70);
+  --text-quaternary: oklch(0.48 0.006 70);
   --text-link: var(--accent);
   --text-link-hover: var(--accent-hover);
 
-  /* Accent — Warm amber, single point of light */
-  --accent: oklch(0.62 0.12 65);
-  --accent-hover: oklch(0.67 0.12 65);
-  --accent-dim: oklch(0.62 0.12 65 / 0.12);
-  --accent-glow: oklch(0.62 0.12 65 / 0.25);
+  /* Primary accent — Warm amber */
+  --accent: oklch(0.64 0.15 65);
+  --accent-hover: oklch(0.70 0.14 65);
+  --accent-dim: oklch(0.64 0.15 65 / 0.12);
+  --accent-glow: oklch(0.64 0.15 65 / 0.2);
 
-  /* Borders — Subtle, nearly invisible */
-  --border-subtle: oklch(0.15 0.005 50);
-  --border-standard: oklch(0.20 0.006 50);
-  --border-strong: oklch(0.30 0.008 50);
-  --border-accent: oklch(0.62 0.12 65 / 0.3);
+  /* Secondary accent — Muted slate-teal for variety */
+  --accent-secondary: oklch(0.55 0.04 200);
+  --accent-secondary-dim: oklch(0.55 0.04 200 / 0.1);
+
+  /* Borders */
+  --border-subtle: oklch(0.18 0.006 50);
+  --border-standard: oklch(0.22 0.007 50);
+  --border-strong: oklch(0.32 0.008 50);
+  --border-accent: oklch(0.64 0.15 65 / 0.25);
 
   /* Status */
   --success: oklch(0.63 0.16 145);
@@ -46,10 +50,10 @@
   --error: oklch(0.55 0.17 30);
 
   /* Shadows */
-  --shadow-sm: oklch(0 0 0 / 0.25) 0px 0px 0px 1px;
-  --shadow-md: oklch(0 0 0 / 0.30) 0px 4px 12px;
-  --shadow-lg: oklch(0 0 0 / 0.40) 0px 8px 24px;
-  --shadow-glow: 0 0 20px oklch(0.62 0.12 65 / 0.08);
+  --shadow-sm: oklch(0 0 0 / 0.2) 0px 0px 0px 1px;
+  --shadow-md: oklch(0 0 0 / 0.25) 0px 4px 12px;
+  --shadow-lg: oklch(0 0 0 / 0.35) 0px 8px 24px;
+  --shadow-glow: 0 0 24px oklch(0.64 0.15 65 / 0.06);
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -88,32 +92,35 @@
 [data-theme="light"] {
   --bg-canvas: #f5f3ef;
   --bg-panel: #ffffff;
-  --bg-surface: #eceae6;
+  --bg-surface: #ece8e2;
   --bg-elevated: #ffffff;
-  --bg-hover: #e0ddd6;
-  --bg-active: #d5d1c9;
+  --bg-hover: #e2ded6;
+  --bg-active: #d6d1c8;
 
-  --text-primary: #1a1a18;
-  --text-secondary: #4a4845;
-  --text-tertiary: #8a8780;
+  --text-primary: #1c1b18;
+  --text-secondary: #4e4a45;
+  --text-tertiary: #8c8880;
   --text-quaternary: #b0aca5;
   --text-link: #b8723a;
-  --text-link-hover: #a06028;
+  --text-link-hover: #a05c24;
 
   --accent: #b8723a;
-  --accent-hover: #c47f45;
+  --accent-hover: #c68348;
   --accent-dim: rgba(184, 114, 58, 0.10);
-  --accent-glow: rgba(184, 114, 58, 0.20);
+  --accent-glow: rgba(184, 114, 58, 0.18);
 
-  --border-subtle: rgba(0,0,0,0.06);
-  --border-standard: rgba(0,0,0,0.10);
-  --border-strong: rgba(0,0,0,0.15);
-  --border-accent: rgba(184, 114, 58, 0.3);
+  --accent-secondary: oklch(0.50 0.04 200);
+  --accent-secondary-dim: oklch(0.50 0.04 200 / 0.08);
 
-  --shadow-sm: rgba(0,0,0,0.05) 0px 1px 2px;
-  --shadow-md: rgba(0,0,0,0.10) 0px 4px 12px;
-  --shadow-lg: rgba(0,0,0,0.12) 0px 8px 24px;
-  --shadow-glow: 0 0 20px rgba(184, 114, 58, 0.05);
+  --border-subtle: rgba(0,0,0,0.07);
+  --border-standard: rgba(0,0,0,0.12);
+  --border-strong: rgba(0,0,0,0.18);
+  --border-accent: rgba(184, 114, 58, 0.25);
+
+  --shadow-sm: rgba(0,0,0,0.04) 0px 1px 2px;
+  --shadow-md: rgba(0,0,0,0.08) 0px 4px 12px;
+  --shadow-lg: rgba(0,0,0,0.10) 0px 8px 24px;
+  --shadow-glow: 0 0 20px rgba(184, 114, 58, 0.04);
 }
 
 /* ═══════════════ BASE ═══════════════ */
@@ -178,7 +185,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: oklch(0.06 0.003 55 / 0.85);
+  background: oklch(0.08 0.005 55 / 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -253,7 +260,7 @@ a:hover {
 }
 
 .nav-rss:hover {
-  color: var(--accent);
+  color: var(--accent-secondary);
 }
 
 /* ═══════════════ THEME TOGGLE ═══════════════ */
@@ -355,8 +362,9 @@ a:hover {
 .section-divider {
   border: none;
   height: 1px;
-  background: var(--border-subtle);
+  background: linear-gradient(90deg, transparent, var(--accent-dim), var(--accent), var(--accent-dim), transparent);
   margin: var(--space-12) 0;
+  opacity: 0.6;
 }
 
 /* ═══════════════ POST CARDS ═══════════════ */
@@ -378,11 +386,11 @@ a:hover {
 .post-card-inner::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--accent));
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
@@ -459,6 +467,12 @@ a:hover {
   padding: 2px 8px;
   border-radius: 999px;
   letter-spacing: 0.02em;
+}
+
+/* Alternative tag style for variety */
+.tag-alt {
+  color: var(--accent-secondary);
+  background: var(--accent-secondary-dim);
 }
 
 /* ═══════════════ FULL POST ═══════════════ */
