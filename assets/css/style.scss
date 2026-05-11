@@ -132,7 +132,7 @@ body {
   padding: 0;
   background: var(--bg-canvas);
   color: var(--text-secondary);
-  font-family: var(--font-sans);
+  font-family: var(--font-hebrew), var(--font-sans);
   font-feature-settings: var(--font-features);
   font-size: 16px;
   line-height: 1.6;
@@ -270,7 +270,7 @@ a:hover {
   cursor: pointer;
   color: var(--text-tertiary);
   transition: all var(--transition-fast);
-  margin-left: var(--space-2);
+  margin-inline-start: var(--space-2);
 }
 
 .theme-toggle:hover {
@@ -536,16 +536,10 @@ a:hover {
   margin: 0 0 1.25em;
   padding: var(--space-4) var(--space-5);
   background: var(--bg-surface);
-  border-left: 3px solid var(--accent);
+  border-inline-start: 3px solid var(--accent);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   color: var(--text-tertiary);
   font-style: italic;
-}
-
-[dir="rtl"] .post-content blockquote {
-  border-left: none;
-  border-right: 3px solid var(--accent);
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
 }
 
 .post-content code {
@@ -577,13 +571,7 @@ a:hover {
 .post-content ul,
 .post-content ol {
   margin: 0 0 1.25em;
-  padding-left: 1.5em;
-}
-
-[dir="rtl"] .post-content ul,
-[dir="rtl"] .post-content ol {
-  padding-left: 0;
-  padding-right: 1.5em;
+  padding-inline-start: 1.5em;
 }
 
 .post-content li {
@@ -633,11 +621,7 @@ a:hover {
 }
 
 .post-nav-link.next {
-  text-align: right;
-}
-
-[dir="rtl"] .post-nav-link.next {
-  text-align: left;
+  text-align: end;
 }
 
 .nav-label {
@@ -720,12 +704,7 @@ a:hover {
 
 .page-content ul {
   margin: 0 0 1em;
-  padding-left: 1.5em;
-}
-
-[dir="rtl"] .page-content ul {
-  padding-left: 0;
-  padding-right: 1.5em;
+  padding-inline-start: 1.5em;
 }
 
 .page-content li {
@@ -863,8 +842,8 @@ a:hover {
   color: var(--text-tertiary);
   margin: 0 0 var(--space-4);
   max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
 .footer-links {
@@ -950,11 +929,7 @@ a:hover {
   }
 
   .post-nav-link.next {
-    text-align: left;
-  }
-
-  [dir="rtl"] .post-nav-link.next {
-    text-align: right;
+    text-align: start;
   }
 
   .archive-item {
