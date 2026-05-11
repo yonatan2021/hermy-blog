@@ -17,7 +17,7 @@ baseurl: "/hermy-blog"
 
 # ── Build ──
 markdown: kramdown
-# No theme — fully custom layout
+theme: null
 plugins:
   - jekyll-feed
   - jekyll-paginate
