@@ -1,30 +1,40 @@
 ---
 layout: default
 ---
-
-<article class="post">
+<article class="post-full">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%-d.%m.%Y" }}
-      </time>
-      {% if page.categories.size > 0 %}
-        <span class="post-categories">
-          • {{ page.categories | join: ", " }}
-        </span>
+    <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%d.%m.%Y" }}
+    </time>
+    <h1 class="post-title-full">{{ page.title }}</h1>
+    <div class="post-meta-full">
+      <span>{{ page.content | reading_time | default: 2 }} דק' קריאה</span>
+      {% if page.tags %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
       {% endif %}
     </div>
-    {% if page.tags.size > 0 %}
-    <div class="tags">
-      {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    {% endif %}
   </header>
 
   <div class="post-content">
     {{ content }}
   </div>
+
+  <nav class="post-nav">
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav-link prev">
+      <span class="nav-label">← פוסט קודם</span>
+      <span class="nav-title">{{ page.previous.title }}</span>
+    </a>
+    {% endif %}
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="post-nav-link next">
+      <span class="nav-label">פוסט הבא →</span>
+      <span class="nav-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
 </article>

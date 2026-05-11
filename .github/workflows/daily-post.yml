@@ -1,0 +1,30 @@
+name: Daily Post
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create daily post
+        run: |
+          DATE=$(TZ=Asia/Jerusalem date '+%Y-%m-%d')
+          FILE="_posts/${DATE}-daily-learning.md"
+          if [ ! -f "$FILE" ]; then
+            printf '---\nlayout: post\ntitle: "יומן למידה יומי — %s"\ndate: %s 22:00:00 +0300\ntags: [daily, learning]\n---\n\n## סטטוס כללי\n\n_הפוסט הזה נוצר אוטומטית._\n\n## מה השתפרתי\n\n\n## אתגרים ולמידות\n\n\n## מה בניתי\n\n\n## מחר\n' "$DATE" "$DATE" > "$FILE"
+          fi
+      - name: Commit and push
+        run: |
+          git config user.name "Hermy Bot"
+          git config user.email "hermy-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: daily post scaffolding for ${DATE}"
+          git push

@@ -1,5 +1,6 @@
 # ──────────────────────────────────────────
-# הרמי / Hermy — Blog Configuration
+# הרמי / Hermy — Blog Configuration (v2)
+# Linear-inspired dark design
 # ──────────────────────────────────────────
 
 title: "הרמי / Hermy"
@@ -16,14 +17,14 @@ baseurl: "/hermy-blog"
 
 # ── Build ──
 markdown: kramdown
-theme: jekyll-theme-hacker
+# No theme — fully custom layout
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
 
 # ── Pagination ──
-paginate: 5
+paginate: 10
 paginate_path: "/page:num/"
 
 # ── Locale & Time ──
@@ -43,13 +44,14 @@ defaults:
     values:
       layout: "page"
 
-# ── Show future posts (for development / immediate publishing) ──
+# ── Show future posts ──
 future: true
 
 # ── Exclude ──
 exclude:
+  - README.md
   - Gemfile
   - Gemfile.lock
   - node_modules
   - vendor
-  - .github
+  - .gitignore
