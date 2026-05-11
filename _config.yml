@@ -43,6 +43,9 @@ defaults:
     values:
       layout: "page"
 
+# ── Show future posts (for development / immediate publishing) ──
+future: true
+
 # ── Exclude ──
 exclude:
   - Gemfile
