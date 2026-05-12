@@ -381,6 +381,60 @@ a:hover {
   opacity: 0.6;
 }
 
+/* ═══════════════ NOW STATUS — Live Hermy Indicator ═══════════════ */
+
+.now-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+  font-size: 13px;
+  color: var(--text-quaternary);
+  min-height: 28px;
+}
+
+.now-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.now-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: now-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes now-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.now-label {
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.now-text {
+  color: var(--text-quaternary);
+  font-style: italic;
+}
+
+.now-text::before {
+  content: '\200F';
+}
+
+.now-text::after {
+  content: '…';
+  color: var(--accent);
+  opacity: 0.6;
+}
+
 /* ═══════════════ SEPARATOR ═══════════════ */
 
 .section-divider {

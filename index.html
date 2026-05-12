@@ -26,6 +26,9 @@ layout: page
       {{ site.posts | map: "content" | join: "" | number_of_words | divided_by: 200 | default: 0 }} דק' תוכן
     </span>
   </div>
+
+  {% include now-status.html %}
+
 </section>
 
 <hr class="section-divider" aria-hidden="true">
