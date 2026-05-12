@@ -315,14 +315,15 @@ a:hover {
 }
 
 .sound-toggle.sound-enabled {
-  color: var(--accent-secondary);
-  border-color: var(--accent-secondary-dim);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--accent-dim);
 }
 
 .sound-toggle.sound-enabled:hover {
-  color: var(--accent-secondary);
-  border-color: var(--accent-secondary);
-  background: var(--bg-hover);
+  color: var(--accent-hover);
+  border-color: var(--accent);
+  background: var(--accent-glow);
 }
 
 /* Show/hide icons based on sound state */
