@@ -292,6 +292,46 @@ a:hover {
 [data-theme="light"] .theme-icon-dark { display: none; }
 [data-theme="light"] .theme-icon-light { display: block; }
 
+/* ═══════════════ SOUND TOGGLE ═══════════════ */
+
+.sound-toggle {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-quaternary);
+  transition: all var(--transition-fast);
+}
+
+.sound-toggle:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.sound-toggle.sound-enabled {
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary-dim);
+}
+
+.sound-toggle.sound-enabled:hover {
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  background: var(--bg-hover);
+}
+
+/* Show/hide icons based on sound state */
+.sound-icon-off { display: block; }
+.sound-icon-on { display: none; }
+
+[data-sound="on"] .sound-icon-off { display: none; }
+[data-sound="on"] .sound-icon-on { display: block; }
+
 /* ═══════════════ MAIN ═══════════════ */
 
 .main-content {
