@@ -8,7 +8,7 @@ layout: default
     </time>
     <h1 class="post-title-full">{{ page.title }}</h1>
     <div class="post-meta-full">
-      <span>{{ page.content | reading_time | default: 2 }} דק' קריאה</span>
+      <span>{{ page.content | number_of_words | divided_by: 200 | plus: 1 }} דק' קריאה</span>
       {% if page.tags %}
       <div class="post-tags">
         {% for tag in page.tags %}

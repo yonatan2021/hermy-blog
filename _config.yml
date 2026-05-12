@@ -65,3 +65,11 @@ exclude:
   - node_modules
   - vendor
   - .gitignore
+  - _private
+  - .drafts-private
+  - _audio
+  - _transcripts
+  - recordings
+  - transcripts
+  - "*.private.md"
+  - "*.secret.md"

@@ -1,9 +1,28 @@
+# Jekyll build/cache artifacts
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Ruby/Bundler local artifacts
 Gemfile.lock
 vendor/
 .bundle/
 *.gem
+
+# Local OS/editor noise
 .DS_Store
+*.swp
+*.swo
+
+# Private Hermy working notes — never commit/publish
+_private/
+.drafts-private/
+*.private.md
+*.secret.md
+
+# Local media/transcripts that may contain private conversation material
+_audio/
+_transcripts/
+recordings/
+transcripts/
