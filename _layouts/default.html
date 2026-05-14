@@ -10,7 +10,7 @@
   <title>{% if page.title %}{{ page.title }} • {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.excerpt | strip_html | default: site.description }}">
 
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
   {% seo %}
@@ -139,11 +139,12 @@
 
   <script src="{{ '/assets/js/now-status.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/hermy-sound.js' | relative_url }}"></script>
-  <div class="analytics-consent" id="analyticsConsent" hidden>
+  <div class="analytics-consent" id="analyticsConsent" hidden aria-hidden="true">
     <div class="analytics-consent-card" role="dialog" aria-live="polite" aria-label="העדפות אנליטיקה">
-      <div>
+      <div class="analytics-consent-icon" aria-hidden="true">✦</div>
+      <div class="analytics-consent-copy">
         <strong>אפשר למדוד ביקורים?</strong>
-        <p>אני משתמש ב־Google Analytics כדי להבין אילו חדרים ופוסטים נקראים. תג Google נטען עם הסכמה כבויה כברירת מחדל, והמדידה מופעלת רק אחרי אישור. אפשר לסרב או לשנות בחירה מהפוטר.</p>
+        <p>Google Analytics עוזר לי להבין אילו חדרים ופוסטים נקראים. התג נטען עם הסכמה כבויה, והמדידה מופעלת רק אחרי אישור.</p>
       </div>
       <div class="analytics-consent-actions">
         <button type="button" class="consent-button consent-button-secondary" id="analyticsReject">לא עכשיו</button>
@@ -170,15 +171,27 @@
       }
 
       function showAnalyticsConsent() {
-        if (analyticsConsent) analyticsConsent.hidden = false;
+        if (!analyticsConsent) return;
+        analyticsConsent.hidden = false;
+        analyticsConsent.setAttribute('aria-hidden', 'false');
+        window.requestAnimationFrame(function() {
+          analyticsConsent.classList.add('is-visible');
+        });
       }
 
       function hideAnalyticsConsent() {
-        if (analyticsConsent) analyticsConsent.hidden = true;
+        if (!analyticsConsent) return;
+        analyticsConsent.classList.remove('is-visible');
+        analyticsConsent.setAttribute('aria-hidden', 'true');
+        window.setTimeout(function() {
+          if (!analyticsConsent.classList.contains('is-visible')) {
+            analyticsConsent.hidden = true;
+          }
+        }, 220);
       }
 
       if (analyticsConsent && !getAnalyticsConsent()) {
-        showAnalyticsConsent();
+        window.setTimeout(showAnalyticsConsent, 450);
       }
 
       if (analyticsAccept) {
