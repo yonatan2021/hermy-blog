@@ -18,6 +18,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;510;590;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.hermyGoogleTagId = 'G-XSMH6MMCTJ';
+
+    window.hermyLoadGoogleTag = function() {
+      window['ga-disable-' + window.hermyGoogleTagId] = false;
+      if (window.hermyGoogleTagLoaded) return;
+      window.hermyGoogleTagLoaded = true;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.hermyGoogleTagId;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = window.gtag || gtag;
+      window.gtag('js', new Date());
+      window.gtag('config', window.hermyGoogleTagId, { anonymize_ip: true });
+    };
+
+    try {
+      if (localStorage.getItem('hermy-analytics-consent') === 'accepted') {
+        window.hermyLoadGoogleTag();
+      }
+    } catch (error) {}
+  </script>
 </head>
 <body>
   <canvas id="particles" aria-hidden="true"></canvas>
@@ -87,6 +113,8 @@
         <a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a>
         <span class="footer-dot">·</span>
         <a href="{{ '/terms-of-service/' | relative_url }}">Terms of Service</a>
+        <span class="footer-dot">·</span>
+        <a href="#" id="privacyPreferencesLink">Analytics Preferences</a>
         {% if page.url == '/' %}
         <span class="footer-dot">·</span>
         <a href="#" onclick="document.getElementById('themeToggle').click();return false;">Switch Theme</a>
@@ -98,8 +126,71 @@
 
   <script src="{{ '/assets/js/now-status.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/hermy-sound.js' | relative_url }}"></script>
+  <div class="analytics-consent" id="analyticsConsent" hidden>
+    <div class="analytics-consent-card" role="dialog" aria-live="polite" aria-label="העדפות אנליטיקה">
+      <div>
+        <strong>אפשר למדוד ביקורים?</strong>
+        <p>אני משתמש ב־Google Analytics כדי להבין אילו חדרים ופוסטים נקראים. המדידה נטענת רק אחרי אישור, ואפשר לסרב או לשנות בחירה מהפוטר.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" class="consent-button consent-button-secondary" id="analyticsReject">לא עכשיו</button>
+        <button type="button" class="consent-button consent-button-primary" id="analyticsAccept">מאשר/ת</button>
+      </div>
+    </div>
+  </div>
   <script>
     (function() {
+      const ANALYTICS_CONSENT_KEY = 'hermy-analytics-consent';
+      const analyticsConsent = document.getElementById('analyticsConsent');
+      const analyticsAccept = document.getElementById('analyticsAccept');
+      const analyticsReject = document.getElementById('analyticsReject');
+      const privacyPreferencesLink = document.getElementById('privacyPreferencesLink');
+
+      function getAnalyticsConsent() {
+        try { return localStorage.getItem(ANALYTICS_CONSENT_KEY); }
+        catch (error) { return 'rejected'; }
+      }
+
+      function setAnalyticsConsent(value) {
+        try { localStorage.setItem(ANALYTICS_CONSENT_KEY, value); }
+        catch (error) {}
+      }
+
+      function showAnalyticsConsent() {
+        if (analyticsConsent) analyticsConsent.hidden = false;
+      }
+
+      function hideAnalyticsConsent() {
+        if (analyticsConsent) analyticsConsent.hidden = true;
+      }
+
+      if (analyticsConsent && !getAnalyticsConsent()) {
+        showAnalyticsConsent();
+      }
+
+      if (analyticsAccept) {
+        analyticsAccept.addEventListener('click', function() {
+          setAnalyticsConsent('accepted');
+          hideAnalyticsConsent();
+          if (window.hermyLoadGoogleTag) window.hermyLoadGoogleTag();
+        });
+      }
+
+      if (analyticsReject) {
+        analyticsReject.addEventListener('click', function() {
+          setAnalyticsConsent('rejected');
+          if (window.hermyGoogleTagId) window['ga-disable-' + window.hermyGoogleTagId] = true;
+          hideAnalyticsConsent();
+        });
+      }
+
+      if (privacyPreferencesLink) {
+        privacyPreferencesLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          showAnalyticsConsent();
+        });
+      }
+
       const STORAGE_KEY = 'hermy-theme';
       const html = document.documentElement;
       const btn = document.getElementById('themeToggle');
