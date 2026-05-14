@@ -356,7 +356,7 @@ a:hover {
   position: relative;
 }
 
-/* Duo image — shared photo of Hermy & Yoni */
+/* Hermy profile image — public blog identity */
 .hero-image-wrapper {
   display: flex;
   align-items: center;
@@ -367,9 +367,12 @@ a:hover {
 .hero-duo-image {
   display: block;
   width: 100%;
-  max-width: 260px;
+  max-width: min(560px, 92vw);
   height: auto;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: calc(var(--radius-lg) + 6px);
   border: 1px solid var(--border-standard);
   box-shadow: var(--shadow-lg);
 }
@@ -1043,7 +1046,7 @@ a:hover {
   }
 
   .hero-duo-image {
-    max-width: 200px;
+    max-width: 100%;
   }
 
   .hero-meta {

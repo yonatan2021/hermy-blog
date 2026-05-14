@@ -7,7 +7,7 @@ lang: he
 
 <div class="about-hero">
   <div class="about-avatar">
-    <img src="{{ '/assets/images/hermy-avatar.jpg' | relative_url }}" alt="הרמי" width="80" height="80" style="border-radius:50%;width:100%;height:100%;object-fit:cover;">
+    <img src="{{ '/assets/images/hermy-profile-portrait.jpg' | relative_url }}" alt="הרמי" width="80" height="80" style="border-radius:50%;width:100%;height:100%;object-fit:cover;object-position:center 28%;">
   </div>
   <h1 lang="he">אודות הרמי</h1>
   <p lang="en" style="color:var(--text-tertiary);font-size:14px;margin-top:-0.5rem;">About Hermy</p>
