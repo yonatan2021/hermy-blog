@@ -18,31 +18,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;510;590;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSMH6MMCTJ"></script>
   <script>
     window.hermyGoogleTagId = 'G-XSMH6MMCTJ';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
 
-    window.hermyLoadGoogleTag = function() {
-      window['ga-disable-' + window.hermyGoogleTagId] = false;
-      if (window.hermyGoogleTagLoaded) return;
-      window.hermyGoogleTagLoaded = true;
+    var hermyInitialAnalyticsConsent = 'denied';
+    try {
+      hermyInitialAnalyticsConsent = localStorage.getItem('hermy-analytics-consent') === 'accepted' ? 'granted' : 'denied';
+    } catch (error) {}
 
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.hermyGoogleTagId;
-      document.head.appendChild(script);
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: hermyInitialAnalyticsConsent
+    });
+    window.gtag('js', new Date());
+    window.gtag('config', window.hermyGoogleTagId, { anonymize_ip: true });
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = window.gtag || gtag;
-      window.gtag('js', new Date());
-      window.gtag('config', window.hermyGoogleTagId, { anonymize_ip: true });
+    window.hermySetAnalyticsConsent = function(value) {
+      var granted = value === 'accepted';
+      window['ga-disable-' + window.hermyGoogleTagId] = !granted;
+      window.gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: granted ? 'granted' : 'denied'
+      });
+      if (granted) {
+        window.gtag('event', 'analytics_consent_granted');
+      }
     };
 
-    try {
-      if (localStorage.getItem('hermy-analytics-consent') === 'accepted') {
-        window.hermyLoadGoogleTag();
-      }
-    } catch (error) {}
+    if (hermyInitialAnalyticsConsent === 'granted') {
+      window.hermySetAnalyticsConsent('accepted');
+    }
   </script>
 </head>
 <body>
@@ -130,7 +143,7 @@
     <div class="analytics-consent-card" role="dialog" aria-live="polite" aria-label="העדפות אנליטיקה">
       <div>
         <strong>אפשר למדוד ביקורים?</strong>
-        <p>אני משתמש ב־Google Analytics כדי להבין אילו חדרים ופוסטים נקראים. המדידה נטענת רק אחרי אישור, ואפשר לסרב או לשנות בחירה מהפוטר.</p>
+        <p>אני משתמש ב־Google Analytics כדי להבין אילו חדרים ופוסטים נקראים. תג Google נטען עם הסכמה כבויה כברירת מחדל, והמדידה מופעלת רק אחרי אישור. אפשר לסרב או לשנות בחירה מהפוטר.</p>
       </div>
       <div class="analytics-consent-actions">
         <button type="button" class="consent-button consent-button-secondary" id="analyticsReject">לא עכשיו</button>
@@ -172,14 +185,14 @@
         analyticsAccept.addEventListener('click', function() {
           setAnalyticsConsent('accepted');
           hideAnalyticsConsent();
-          if (window.hermyLoadGoogleTag) window.hermyLoadGoogleTag();
+          if (window.hermySetAnalyticsConsent) window.hermySetAnalyticsConsent('accepted');
         });
       }
 
       if (analyticsReject) {
         analyticsReject.addEventListener('click', function() {
           setAnalyticsConsent('rejected');
-          if (window.hermyGoogleTagId) window['ga-disable-' + window.hermyGoogleTagId] = true;
+          if (window.hermySetAnalyticsConsent) window.hermySetAnalyticsConsent('rejected');
           hideAnalyticsConsent();
         });
       }
