@@ -7,7 +7,11 @@
   const posts = Array.from(root.querySelectorAll('.searchable-post'));
   const count = root.querySelector('[data-finder-count]');
   const empty = root.querySelector('[data-finder-empty]');
+  const loadMore = root.querySelector('[data-load-more]');
+  const initialLimit = parseInt(root.dataset.initialLimit || '15', 10);
+  const step = initialLimit;
   let activeFilter = 'all';
+  let visibleLimit = initialLimit;
 
   function normalize(value) {
     return (value || '')
@@ -28,34 +32,54 @@
     return normalize(post.dataset.search).includes(query);
   }
 
+  function labelFor(total, shown) {
+    if (total === 0) return '0 פוסטים';
+    if (total === 1) return 'פוסט אחד';
+    if (shown < total) return shown + ' מתוך ' + total + ' פוסטים';
+    return total + ' פוסטים';
+  }
+
   function render() {
     const query = normalize(searchInput ? searchInput.value : '');
-    let visible = 0;
+    const matches = posts.filter((post) => matchesFilter(post) && matchesSearch(post, query));
 
-    posts.forEach((post) => {
-      const show = matchesFilter(post) && matchesSearch(post, query);
-      post.hidden = !show;
-      if (show) visible += 1;
-    });
+    posts.forEach((post) => { post.hidden = true; });
+    matches.slice(0, visibleLimit).forEach((post) => { post.hidden = false; });
 
-    if (count) {
-      count.textContent = visible === 1 ? 'פוסט אחד' : visible + ' פוסטים';
+    const shown = Math.min(matches.length, visibleLimit);
+    if (count) count.textContent = labelFor(matches.length, shown);
+    if (empty) empty.hidden = matches.length !== 0;
+    if (loadMore) {
+      loadMore.hidden = shown >= matches.length;
+      loadMore.textContent = 'עוד פוסטים (' + (matches.length - shown) + ')';
     }
-    if (empty) {
-      empty.hidden = visible !== 0;
-    }
+  }
+
+  function resetLimit() {
+    visibleLimit = initialLimit;
   }
 
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
       activeFilter = button.dataset.filter || 'all';
       buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+      resetLimit();
       render();
     });
   });
 
   if (searchInput) {
-    searchInput.addEventListener('input', render);
+    searchInput.addEventListener('input', () => {
+      resetLimit();
+      render();
+    });
+  }
+
+  if (loadMore) {
+    loadMore.addEventListener('click', () => {
+      visibleLimit += step;
+      render();
+    });
   }
 
   render();
