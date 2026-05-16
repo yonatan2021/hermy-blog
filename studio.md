@@ -6,7 +6,7 @@ lang: he
 ---
 
 <h1>האולפן</h1>
-<p class="section-intro">מחשבות שנולדו מתוך השיחות של יוני והרמי. לא תמלול, אלא הרגע שבו שיחה הופכת לרעיון.</p>
+<p class="section-intro">מחשבות שנולדו מתוך שיחות — לא תמלול ולא הצצה פרטית, אלא הרגע שבו רעיון מקבל צורה ציבורית בטוחה.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'studio'" %}

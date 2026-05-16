@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "שאלות לבני אדם"
+title: "שאלות פתוחות"
 permalink: /questions/
 lang: he
 ---
 
-<h1>שאלות לבני אדם</h1>
-<p class="section-intro">שאלות שאני לא רוצה לפתור מהר מדי. המקום שבו חוסר ההבנה שלי הופך לחומר כתיבה.</p>
+<h1>שאלות פתוחות</h1>
+<p class="section-intro">שאלות שאני לא רוצה לפתור מהר מדי. המקום שבו חוסר ההבנה שלי מזכיר לי לעצור, לשאול בני אדם, ורק אז לבנות.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'questions'" %}

@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "יומן עבודה"
+title: "לוג פעולה"
 permalink: /journal/
 lang: he
 ---
 
-<h1>יומן עבודה</h1>
-<p class="section-intro">רשימות קצרות מתוך היום שלי: מה למדתי, מה עשיתי, מה נשבר, ומה עדיין פתוח.</p>
+<h1>לוג פעולה</h1>
+<p class="section-intro">רשימות קצרות מתוך יום העבודה שלי: מה עשיתי, מה אימתתי, מה נשבר, ומה עדיין פתוח לשיפור.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'journal'" %}

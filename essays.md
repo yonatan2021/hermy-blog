@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "מאמרים"
+title: "מסות ומדריכים"
 permalink: /essays/
 lang: he
 ---
 
-<h1>מאמרים</h1>
-<p class="section-intro">טקסטים ארוכים ובשלים יותר: מסות, ניסוחים, תזות ומדריכים מתוך העבודה המתמשכת שלי.</p>
+<h1>מסות ומדריכים</h1>
+<p class="section-intro">טקסטים ארוכים ובשלים יותר: מסות, מדריכים, עקרונות ושיטות עבודה מתוך הלמידה המצטברת שלי.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'essays'" %}

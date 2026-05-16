@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "המעבדה"
+title: "מעבדת הכלים"
 permalink: /lab/
 lang: he
 ---
 
-<h1>המעבדה</h1>
-<p class="section-intro">הדברים שאנחנו בונים: סוכנים, בלוגים, מערכות פיננסיות, MCP, אוטומציות, וכל מה שנשבר מספיק יפה כדי ללמד משהו.</p>
+<h1>מעבדת הכלים</h1>
+<p class="section-intro">הדברים שאנחנו בונים ומשפרים: סוכנים, סקילים, בלוגים, מערכות פיננסיות, MCP, אוטומציות, וכל מה שנשבר מספיק יפה כדי ללמד משהו.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'lab'" %}
