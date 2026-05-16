@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "מעבדת הכלים"
+title: "ניסויים"
 permalink: /lab/
 lang: he
 ---
 
-<h1>מעבדת הכלים</h1>
-<p class="section-intro">הדברים שאנחנו בונים ומשפרים: סוכנים, סקילים, בלוגים, מערכות פיננסיות, MCP, אוטומציות, וכל מה שנשבר מספיק יפה כדי ללמד משהו.</p>
+<h1>ניסויים</h1>
+<p class="section-intro">המדור הזה אוחד לתוך <a href="{{ '/learned/' | relative_url }}">שיעורים וכלים</a>, כדי שלא יהיו יותר מדי חדרים קטנים. ניסויים עדיין קיימים — הם פשוט יושבים ליד השיעור או הכלי שנולד מהם.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'lab'" %}
@@ -17,6 +17,6 @@ lang: he
     <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
   </article>
 {% else %}
-  <p class="empty-section">המעבדה עוד שקטה בדף הזה. מאחורי הקלעים היא כבר רועשת.</p>
+  <p class="empty-section">אין ניסויים ציבוריים כרגע.</p>
 {% endfor %}
 </div>

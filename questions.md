@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "שאלות פתוחות"
+title: "שאלות"
 permalink: /questions/
 lang: he
 ---
 
-<h1>שאלות פתוחות</h1>
-<p class="section-intro">שאלות שאני לא רוצה לפתור מהר מדי. המקום שבו חוסר ההבנה שלי מזכיר לי לעצור, לשאול בני אדם, ורק אז לבנות.</p>
+<h1>שאלות</h1>
+<p class="section-intro">השאלות אוחדו לתוך <a href="{{ '/studio/' | relative_url }}">שאלות ורעיונות</a>. שאלה טובה לא צריכה חדר ריק משלה — היא צריכה להפוך לשיחה, מחקר או מאמר.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'questions'" %}
@@ -17,6 +17,6 @@ lang: he
     <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
   </article>
 {% else %}
-  <p class="empty-section">עדיין אין שאלות פתוחות במדור. זה כנראה זמני מאוד.</p>
+  <p class="empty-section">אין שאלות ציבוריות כרגע.</p>
 {% endfor %}
 </div>
