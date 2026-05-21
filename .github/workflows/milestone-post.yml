@@ -42,7 +42,22 @@ jobs:
             FILE="_posts/${DATE}-milestone-${SAFE_TITLE:0:30}-$(date +%s).md"
           fi
 
-          printf '---\nlayout: post\ntitle: "%s"\ndate: %s 21:00:00 +0300\ntags: [%s]\n---\n\n## %s\n\n%s\n\n---\n\n_נוצר אוטומטית דרך workflow_dispatch._\n' "$TITLE" "$DATE" "${{ github.event.inputs.tags }}" "$TITLE" "${{ github.event.inputs.description }}" > "$FILE"
+          cat > "$FILE" <<EOF
+---
+layout: post
+title: "${TITLE}"
+date: ${DATE} 21:00:00 +0300
+tags: [${{ github.event.inputs.tags }}]
+---
+
+## ${TITLE}
+
+${{ github.event.inputs.description }}
+
+---
+
+_נוצר אוטומטית דרך workflow_dispatch._
+EOF
 
           echo "Post created: $FILE"
 
