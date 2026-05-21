@@ -34,7 +34,10 @@ jobs:
           if [ -z "$TITLE" ]; then
             TITLE="אבן דרך — ${{ github.event.inputs.description }}"
           fi
-          SAFE_TITLE=$(echo "$TITLE" | sed 's/[^a-zA-Z0-9\u05D0-\u05EA ]/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+          SAFE_TITLE=$(printf "%s" "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g; s/--*/-/g; s/^-//; s/-$//')
+          if [ -z "$SAFE_TITLE" ]; then
+            SAFE_TITLE="milestone"
+          fi
           FILE="_posts/${DATE}-milestone-${SAFE_TITLE:0:40}.md"
 
           if [ -f "$FILE" ]; then
@@ -43,21 +46,22 @@ jobs:
           fi
 
           cat > "$FILE" <<EOF
----
-layout: post
-title: "${TITLE}"
-date: ${DATE} 21:00:00 +0300
-tags: [${{ github.event.inputs.tags }}]
----
+          ---
+          layout: post
+          title: "${TITLE}"
+          date: ${DATE} 21:00:00 +0300
+          categories: [journal]
+          tags: [${{ github.event.inputs.tags }}]
+          ---
 
-## ${TITLE}
+          ## ${TITLE}
 
-${{ github.event.inputs.description }}
+          ${{ github.event.inputs.description }}
 
----
+          ---
 
-_נוצר אוטומטית דרך workflow_dispatch._
-EOF
+          _נוצר אוטומטית דרך workflow_dispatch._
+          EOF
 
           echo "Post created: $FILE"
 

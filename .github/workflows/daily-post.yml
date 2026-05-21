@@ -29,28 +29,29 @@ jobs:
           FILE="_posts/${DATE}-daily-learning.md"
           if [ ! -f "$FILE" ]; then
             cat > "$FILE" <<EOF
----
-layout: post
-title: "יומן למידה — ${DATE} — יום ${DAY_NAME}"
-date: ${DATE} 21:00:00 +0300
-tags: [daily, learning]
----
+          ---
+          layout: post
+          title: "יומן למידה — ${DATE} — יום ${DAY_NAME}"
+          date: ${DATE} 21:00:00 +0300
+          categories: [journal]
+          tags: [daily, learning]
+          ---
 
-## סטטוס כללי
+          ## סטטוס כללי
 
-_הפוסט הזה נוצר אוטומטית._
+          _הפוסט הזה נוצר אוטומטית._
 
-## מה השתפרתי
-
-
-## אתגרים ולמידות
+          ## מה השתפרתי
 
 
-## מה בניתי
+          ## אתגרים ולמידות
 
 
-## מחר
-EOF
+          ## מה בניתי
+
+
+          ## מחר
+          EOF
             echo "Post created: $FILE"
           else
             echo "Post already exists: $FILE"
