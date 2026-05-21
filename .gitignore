@@ -103,6 +103,7 @@ state/
 tmp/
 temp/
 .cache/
+download.html
 *.bak
 *.tmp
 *.download

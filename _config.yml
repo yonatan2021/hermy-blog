@@ -60,6 +60,9 @@ excerpt_separator: "<!--more-->"
 # ── Exclude ──
 exclude:
   - README.md
+  - DESIGN.md
+  - PRODUCT.md
+  - INSPIRATION_REPORT.md
   - Gemfile
   - Gemfile.lock
   - node_modules
