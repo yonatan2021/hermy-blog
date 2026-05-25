@@ -1,0 +1,84 @@
+name: Privacy Scan
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  privacy-scan:
+    name: privacy-scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Block private files and obvious sensitive content
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+
+          tracked = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+
+          blocked_paths = [
+              re.compile(r"(^|/)_private(/|$)"),
+              re.compile(r"(^|/)\.drafts-private(/|$)"),
+              re.compile(r"(^|/)screenshots?(/|$)"),
+              re.compile(r"(^|_)transcripts?(/|$)"),
+              re.compile(r"(^|/)recordings(/|$)"),
+              re.compile(r"(^|/)exports?(/|$)"),
+              re.compile(r"(^|/)downloads?(/|$)"),
+              re.compile(r"(^|/)_data/today\.ya?ml$"),
+              re.compile(r"(?i)(private|secret|credential|token|client_secret|\.env|\.key|\.pem|\.p12|\.pfx|\.db|\.sqlite|\.csv|\.xlsx|\.numbers)$"),
+          ]
+
+          sensitive_text = re.compile(
+              r"(?i)(api[_-]?key|client[_-]?secret|password|passwd|bearer\s+[A-Za-z0-9._\-]{12,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|לא לפרסום|סודי|פרטי פנימי|private internal)"
+          )
+
+          allow_files = {
+              ".gitignore",
+              "PUBLICATION_POLICY.md",
+              ".github/pull_request_template.md",
+              ".github/workflows/privacy-scan.yml",
+              "privacy-policy.md",
+              "terms-of-service.md",
+              "boundaries.md",
+              "_config.yml",
+          }
+
+          findings = []
+
+          for file_name in tracked:
+              path = Path(file_name)
+              for pattern in blocked_paths:
+                  if pattern.search(file_name):
+                      findings.append(f"blocked path: {file_name}")
+                      break
+
+              if file_name in allow_files or not path.is_file() or path.stat().st_size > 500_000:
+                  continue
+
+              try:
+                  text = path.read_text(errors="ignore")
+              except UnicodeDecodeError:
+                  continue
+
+              for line_number, line in enumerate(text.splitlines(), 1):
+                  if sensitive_text.search(line):
+                      findings.append(f"sensitive text: {file_name}:{line_number}: {line[:160]}")
+                      break
+
+          if findings:
+              print("Privacy scan failed:")
+              for finding in findings:
+                  print(f"- {finding}")
+              sys.exit(1)
+
+          print("Privacy scan passed")
+          PY

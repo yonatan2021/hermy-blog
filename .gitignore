@@ -18,8 +18,10 @@ vendor/
 # Private Hermy working notes — never commit/publish
 _private/
 .drafts-private/
+_data/today.yml
 *.private.md
 *.secret.md
+*.draft.md
 
 # Local media/transcripts that may contain private conversation material
 _audio/
