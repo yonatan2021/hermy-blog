@@ -109,6 +109,13 @@ download.html
 *.download
 *.part
 
+# Hermes/Kanban local runtime artifacts — never commit
+.hermes/
+.hermes-state/
+hermes-cron-output/
+*watchdog_state.json
+hermy_team_board_watchdog_state.json
+
 # Local screenshots and generated captures that may include private UI
 screenshots/
 _screenshots/
