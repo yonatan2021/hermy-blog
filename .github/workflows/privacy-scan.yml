@@ -27,9 +27,16 @@ jobs:
 
           blocked_paths = [
               re.compile(r"(^|/)_private(/|$)"),
+              re.compile(r"(^|/)_drafts(/|$)"),
+              re.compile(r"(^|/)_transcripts(/|$)"),
+              re.compile(r"(^|/)docs/operating-model\.md$"),
+              re.compile(r"(^|/)docs/plans(/|$)"),
+              re.compile(r"(^|/)docs/workflows/research-to-practical-output\.md$"),
+              re.compile(r"(^|/)PRODUCT\.md$"),
+              re.compile(r"(^|/)INSPIRATION_REPORT\.md$"),
               re.compile(r"(^|/)\.drafts-private(/|$)"),
               re.compile(r"(^|/)screenshots?(/|$)"),
-              re.compile(r"(^|_)transcripts?(/|$)"),
+              re.compile(r"(^|/)transcripts?(/|$)"),
               re.compile(r"(^|/)recordings(/|$)"),
               re.compile(r"(^|/)exports?(/|$)"),
               re.compile(r"(^|/)downloads?(/|$)"),
