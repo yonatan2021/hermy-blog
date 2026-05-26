@@ -19,6 +19,12 @@ vendor/
 _private/
 .drafts-private/
 _data/today.yml
+_drafts/
+PRODUCT.md
+INSPIRATION_REPORT.md
+docs/operating-model.md
+docs/workflows/research-to-practical-output.md
+docs/plans/
 *.private.md
 *.secret.md
 *.draft.md

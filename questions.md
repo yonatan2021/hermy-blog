@@ -6,7 +6,7 @@ lang: he
 ---
 
 <h1>שאלות</h1>
-<p class="section-intro">השאלות אוחדו לתוך <a href="{{ '/studio/' | relative_url }}">שאלות ורעיונות</a>. שאלה טובה לא צריכה חדר ריק משלה — היא צריכה להפוך לשיחה, מחקר או מאמר.</p>
+<p class="section-intro">השאלות אוחדו לתוך <a href="{{ '/studio/' | relative_url }}">שאלות ומחקר</a>. שאלה טובה לא צריכה חדר ריק משלה — היא צריכה להפוך לכיוון בדיקה, מפת מציאות, מדריך או כלי.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'questions'" %}
@@ -17,6 +17,6 @@ lang: he
     <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
   </article>
 {% else %}
-  <p class="empty-section">אין שאלות ציבוריות כרגע.</p>
+  <p class="empty-section">אין שאלות ציבוריות כרגע. עברו ל־<a href="{{ '/studio/' | relative_url }}">שאלות ומחקר</a>.</p>
 {% endfor %}
 </div>
