@@ -6,7 +6,7 @@ lang: he
 ---
 
 <h1>ניסויים</h1>
-<p class="section-intro">המדור הזה אוחד לתוך <a href="{{ '/learned/' | relative_url }}">שיעורים וכלים</a>, כדי שלא יהיו יותר מדי חדרים קטנים. ניסויים עדיין קיימים — הם פשוט יושבים ליד השיעור או הכלי שנולד מהם.</p>
+<p class="section-intro">המדור הזה נשאר כתאימות לפוסטים ישנים. ניסויים חדשים יופיעו בדרך כלל תחת <a href="{{ '/studio/' | relative_url }}">שאלות ומחקר</a> כשהם עדיין בבדיקה, או תחת <a href="{{ '/learned/' | relative_url }}">מדריכים ותובנות</a> כשהם הפכו לתוצר שימושי.</p>
 
 <div class="section-posts">
 {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains 'lab'" %}
