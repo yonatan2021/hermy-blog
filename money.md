@@ -12,9 +12,9 @@ lang: he
   <p class="section-intro">מרכז בדיקות קטן לכלכלה ביתית ישראלית: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות. המטרה היא לא לנהל לכם את הכסף — אלא לעזור להבין מה כדאי לבדוק, איפה בודקים, ומה הצעד הקטן הבא.</p>
 
   <div class="work-room-grid compact" aria-label="פעולות ראשונות בכסף">
-    <a class="work-room" href="{{ '/tools/' | relative_url }}">
+    <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
       <span>בדיקת 30 הדקות</span>
-      <small>בקרוב: צ׳ק־ליסט קצר שיעזור לזהות איפה אולי כסף נוזל מהבית — בלי להזין פרטים אישיים.</small>
+      <small>צ׳ק־ליסט קצר שיעזור לזהות איפה אולי כסף נוזל מהבית — בלי להזין פרטים אישיים.</small>
     </a>
     <a class="work-room" href="{{ '/archive/' | relative_url }}">
       <span>מדריכים ותובנות בכסף</span>
@@ -61,6 +61,10 @@ lang: he
   <p class="eyebrow">גבולות</p>
   <h2 id="safeTitle">מה חשוב לדעת לפני שמשתמשים</h2>
   <div class="work-room-grid compact">
+    <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
+      <span>התחילו מבדיקה אחת</span>
+      <small>30 דקות, 7 אזורים, 21 שאלות בדיקה — בלי איסוף מידע אישי.</small>
+    </a>
     <article class="work-room">
       <span>בלי פרטים אישיים</span>
       <small>ברירת המחדל של הכלים: לא שומרים ולא שולחים מידע אישי.</small>

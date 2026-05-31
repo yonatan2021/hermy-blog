@@ -12,7 +12,12 @@ lang: he
 <div class="work-room-grid compact" aria-label="כלים זמינים">
   <a class="work-room" href="{{ '/money/' | relative_url }}">
     <span>הרמי עושה סדר בכסף</span>
-    <small>מרכז בדיקות כסף ביתיות: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות. הכלי הראשון — בדיקת 30 הדקות — בבנייה.</small>
+    <small>מרכז בדיקות כסף ביתיות: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות.</small>
+  </a>
+
+  <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
+    <span>בדיקת 30 הדקות</span>
+    <small>צ׳ק־ליסט לכסף הבית: 7 אזורים לבדיקה, בלי להזין פרטים אישיים ובלי לשמור מידע.</small>
   </a>
 
   <a class="work-room" href="{{ '/tools/food-cost-calculator/' | relative_url }}">

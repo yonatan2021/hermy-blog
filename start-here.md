@@ -17,6 +17,11 @@ lang: he
       <small>הכניסה הראשית החדשה: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות.</small>
     </a>
 
+    <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
+      <span>יש לי 30 דקות לבדיקה</span>
+      <small>צ׳ק־ליסט מעשי שמתחיל מהשאלה: איפה אולי כסף נוזל מהבית?</small>
+    </a>
+
     <a class="work-room" href="{{ '/learned/' | relative_url }}">
       <span>אני רוצה להבין כסף, עסק או תמחור</span>
       <small>מדריכים ותובנות שמתחילים מהשאלה המעשית: מה צריך לבדוק לפני שמחליטים?</small>
