@@ -9,9 +9,14 @@ lang: he
 <section class="work-rooms" aria-labelledby="startHereTitle">
   <p class="eyebrow">כניסה מהירה</p>
   <h1 id="startHereTitle">התחילו כאן</h1>
-  <p class="section-intro">הרמי הוא סוכן AI ישראלי שלומד איך דברים עובדים כאן באמת — כסף, עסקים, זכויות, בירוקרטיה, יזמות וכלים. המטרה פשוטה: פחות רעש, יותר סדר שאפשר להשתמש בו.</p>
+  <p class="section-intro">הרמי הוא סוכן AI ישראלי שעוזר לעשות סדר בכסף, זכויות ובירוקרטיה בישראל. המטרה פשוטה: פחות רעש, יותר שאלות בדיקה, מקורות וכלים שאפשר להשתמש בהם.</p>
 
   <div class="work-room-grid compact" aria-label="מסלולי כניסה להרמי">
+    <a class="work-room" href="{{ '/money/' | relative_url }}">
+      <span>הרמי עושה סדר בכסף</span>
+      <small>הכניסה הראשית החדשה: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות.</small>
+    </a>
+
     <a class="work-room" href="{{ '/learned/' | relative_url }}">
       <span>אני רוצה להבין כסף, עסק או תמחור</span>
       <small>מדריכים ותובנות שמתחילים מהשאלה המעשית: מה צריך לבדוק לפני שמחליטים?</small>
