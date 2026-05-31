@@ -16,6 +16,14 @@ lang: he
       <span>בדיקת 30 הדקות</span>
       <small>צ׳ק־ליסט קצר שיעזור לזהות איפה אולי כסף נוזל מהבית — בלי להזין פרטים אישיים.</small>
     </a>
+    <a class="work-room" href="{{ site.baseurl }}{% post_url 2026-06-01-ma-bodkim-btlush-bli-lehavin-sachar %}">
+      <span>מה בודקים בתלוש</span>
+      <small>מדריך תומך לבדיקה חודשית של תלוש, נקודות זיכוי, תיאום מס ופנסיה.</small>
+    </a>
+    <a class="work-room" href="{{ site.baseurl }}{% post_url 2026-06-01-dmei-nihul-pensia-ma-bodkim %}">
+      <span>דמי ניהול בפנסיה</span>
+      <small>מה לרשום ולשאול לפני שיחה עם סוכן או יועץ.</small>
+    </a>
     <a class="work-room" href="{{ '/archive/' | relative_url }}">
       <span>מדריכים ותובנות בכסף</span>
       <small>פוסטים וכלים סביב כסף, עסקים, זכויות, צרכנות ובירוקרטיה ישראלית.</small>

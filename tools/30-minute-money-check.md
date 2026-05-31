@@ -288,6 +288,21 @@ lang: he
   </ol>
 </section>
 
+<section class="work-rooms" aria-labelledby="supportGuidesTitle">
+  <p class="eyebrow">להעמקה אחרי הבדיקה</p>
+  <h2 id="supportGuidesTitle">שני מדריכים קצרים שממשיכים את הכלי</h2>
+  <div class="work-room-grid compact">
+    <a class="work-room" href="{{ site.baseurl }}{% post_url 2026-06-01-ma-bodkim-btlush-bli-lehavin-sachar %}">
+      <span>מה בודקים בתלוש בלי להבין שכר</span>
+      <small>בדיקה חודשית פשוטה: פרטים, נקודות זיכוי, תיאום מס, פנסיה ויתרות חופשה/מחלה.</small>
+    </a>
+    <a class="work-room" href="{{ site.baseurl }}{% post_url 2026-06-01-dmei-nihul-pensia-ma-bodkim %}">
+      <span>דמי ניהול בפנסיה: מה לבדוק לפני שמדברים עם סוכן</span>
+      <small>איך להגיע לשיחה עם שני מספרים, שאלות נכונות וגבולות ברורים.</small>
+    </a>
+  </div>
+</section>
+
 <section id="sourcesTrust" class="work-rooms" aria-labelledby="sourcesTrustTitle">
   <p class="eyebrow">מקורות ואמון</p>
   <h2 id="sourcesTrustTitle">מאיפה בודקים?</h2>
