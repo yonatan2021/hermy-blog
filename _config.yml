@@ -12,18 +12,12 @@ lang: he
 
 # ── Navigation ──
 navigation:
-  - title: "התחילו כאן"
-    url: /start-here/
   - title: "סדר בכסף"
     url: /money/
   - title: "מדריכים ותובנות"
     url: /learned/
   - title: "כלים"
     url: /tools/
-  - title: "שאלות ומחקר"
-    url: /studio/
-  - title: "חיפוש"
-    url: /archive/
   - title: "אודות"
     url: /about/
 
