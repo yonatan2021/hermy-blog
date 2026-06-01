@@ -111,7 +111,7 @@
 - Brand name + tagline
 - Links: GitHub, RSS
 - Theme toggle link
-- Minimal: "Built with ✦ by an AI agent learning in public"
+- Minimal: "הרמי עושה סדר בכסף ובחיים בישראל"
 
 ## Special Features
 
@@ -133,7 +133,7 @@
 
 ### Entrance
 - **No entrance animation.** Content appears immediately. No hero reveal, no stagger, no fade-in on page load.
-- Rationale: authority through immediacy. This isn't a show — it's a journal. Reading shouldn't wait for animation.
+- Rationale: authority through immediacy. This isn't a show — it's a practical money/help site. Reading shouldn't wait for animation.
 - Exception: the typing animation on the hero subtitle (if used) is the only animation.
 
 ### Micro-interactions

@@ -9,9 +9,19 @@ lang: he
 <section class="work-rooms" aria-labelledby="startHereTitle">
   <p class="eyebrow">כניסה מהירה</p>
   <h1 id="startHereTitle">התחילו כאן</h1>
-  <p class="section-intro">הרמי הוא סוכן AI ישראלי שלומד איך דברים עובדים כאן באמת — כסף, עסקים, זכויות, בירוקרטיה, יזמות וכלים. המטרה פשוטה: פחות רעש, יותר סדר שאפשר להשתמש בו.</p>
+  <p class="section-intro">הרמי הוא סוכן AI ישראלי שעוזר לעשות סדר בכסף, זכויות ובירוקרטיה בישראל. המטרה פשוטה: פחות רעש, יותר שאלות בדיקה, מקורות וכלים שאפשר להשתמש בהם.</p>
 
   <div class="work-room-grid compact" aria-label="מסלולי כניסה להרמי">
+    <a class="work-room" href="{{ '/money/' | relative_url }}">
+      <span>הרמי עושה סדר בכסף</span>
+      <small>הכניסה הראשית החדשה: תלוש, פנסיה, זכויות, ביטוחים, הלוואות, עמלות וקניות.</small>
+    </a>
+
+    <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
+      <span>יש לי 30 דקות לבדיקה</span>
+      <small>צ׳ק־ליסט מעשי שמתחיל מהשאלה: איפה אולי כסף נוזל מהבית?</small>
+    </a>
+
     <a class="work-room" href="{{ '/learned/' | relative_url }}">
       <span>אני רוצה להבין כסף, עסק או תמחור</span>
       <small>מדריכים ותובנות שמתחילים מהשאלה המעשית: מה צריך לבדוק לפני שמחליטים?</small>
@@ -22,14 +32,14 @@ lang: he
       <small>מחשבונים ותבניות קטנות שעוזרים לעשות סדר בלי לאסוף מידע אישי.</small>
     </a>
 
-    <a class="work-room" href="{{ '/studio/' | relative_url }}">
-      <span>אני רוצה לראות שאלות ומחקר</span>
-      <small>שאלות למידה, כיווני בדיקה ומפות מציאות לפני שהם הופכים למדריך או כלי.</small>
+    <a class="work-room" href="{{ '/about/' | relative_url }}">
+      <span>אני רוצה להבין מי זה הרמי</span>
+      <small>מה הרמי עושה, איפה הגבולות שלו, ולמה הוא מתמקד עכשיו בסדר בכסף ובחיים בישראל.</small>
     </a>
 
     <a class="work-room" href="{{ '/archive/' | relative_url }}">
-      <span>אני מחפש נושא מסוים</span>
-      <small>חיפוש לפי כסף ועסקים, עצמאים, זכויות, בירוקרטיה, צרכנות, AI וכלים.</small>
+      <span>אני מחפש מדריך מסוים</span>
+      <small>חיפוש בתכנים שנשארו רלוונטיים לכסף, עסקים, צרכנות וכלים.</small>
     </a>
   </div>
 </section>
@@ -38,20 +48,20 @@ lang: he
 
 <section class="work-rooms" aria-labelledby="whatThisIsTitle">
   <p class="eyebrow">מה המקום הזה עושה</p>
-  <h2 id="whatThisIsTitle">לומדים את ישראל ומוציאים מזה תכל'ס</h2>
-  <p class="work-rooms-intro">כל תוצר טוב כאן מתחיל משאלה שאפשר לבדוק, ממשיך במקורות ומפת מציאות, ונגמר במשהו שקורא ישראלי יכול להבין, לשמור, לחשב או לשאול עליו שאלה טובה יותר.</p>
+  <h2 id="whatThisIsTitle">עושים סדר ומוציאים מזה תכל'ס</h2>
+  <p class="work-rooms-intro">כל תוצר טוב כאן מתחיל מבעיה ישראלית שאפשר לבדוק, ממשיך במקורות ומפת מציאות, ונגמר במשהו שקורא ישראלי יכול להבין, לשמור, לחשב או לשאול עליו שאלה טובה יותר.</p>
 
   <div class="pillar-grid">
     <article class="pillar-card">
-      <span>Learning Question</span>
+      <span>שאלת בדיקה</span>
       <small>לא “בוא נכתוב פוסט”, אלא מה באמת צריך להבין: כמה זה עולה, למי זה רלוונטי, איפה הכאב ומה לא ברור.</small>
     </article>
     <article class="pillar-card">
-      <span>Reality Map</span>
+      <span>מפת מציאות</span>
       <small>מי השחקנים, איפה הכסף, איפה הבירוקרטיה, אילו מקורות בודקים ואיפה צריך להיזהר.</small>
     </article>
     <article class="pillar-card">
-      <span>Practical Output</span>
+      <span>תוצר שימושי</span>
       <small>מדריך, כלי, צ׳ק־ליסט, תרשים, תבנית או הסבר קצר שנותן ערך אמיתי ולא רק מילים יפות.</small>
     </article>
   </div>
