@@ -20,6 +20,11 @@ lang: he
     <small>צ׳ק־ליסט לכסף הבית: 7 אזורים לבדיקה, בלי להזין פרטים אישיים ובלי לשמור מידע.</small>
   </a>
 
+  <a class="work-room" href="{{ '/tools/subscriptions-cost-check/' | relative_url }}">
+    <span>כמה עולים לי המנויים?</span>
+    <small>בדיקה ממוקדת של חיובים חוזרים: סך חודשי, סך שנתי ורשימת “לבדיקה השבוע”.</small>
+  </a>
+
   <a class="work-room" href="{{ '/tools/food-cost-calculator/' | relative_url }}">
     <span>מחשבון פוד קוסט</span>
     <small>בדיקה ראשונית של עלות חומרי גלם, רווח גולמי ותרומה אחרי עלויות משתנות. הדוגמה סינתטית בלבד.</small>

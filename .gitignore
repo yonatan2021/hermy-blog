@@ -15,6 +15,9 @@ vendor/
 *.swp
 *.swo
 
+# Local prototypes/reference mockups — keep off GitHub
+prototypes/
+
 # Private Hermy working notes — never commit/publish
 _private/
 .drafts-private/

@@ -14,7 +14,11 @@ lang: he
   <div class="work-room-grid compact" aria-label="פעולות ראשונות בכסף">
     <a class="work-room" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
       <span>בדיקת 30 הדקות</span>
-      <small>צ׳ק־ליסט קצר שיעזור לזהות איפה אולי כסף נוזל מהבית — בלי להזין פרטים אישיים.</small>
+      <small>סריקה מהירה שמזהה איפה אולי כסף נוזל מהבית — ואז בוחרים בדיקה ממוקדת אחת.</small>
+    </a>
+    <a class="work-room" href="{{ '/tools/subscriptions-cost-check/' | relative_url }}">
+      <span>כמה עולים לי המנויים?</span>
+      <small>בדיקה של 5 דקות לחיובים חוזרים: סך חודשי, סך שנתי ומה כדאי לבדוק השבוע.</small>
     </a>
     <a class="work-room" href="{{ site.baseurl }}{% post_url 2026-06-01-ma-bodkim-btlush-bli-lehavin-sachar %}">
       <span>מה בודקים בתלוש</span>

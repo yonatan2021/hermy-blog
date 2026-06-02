@@ -178,9 +178,24 @@ lang: he
   </div>
 
   <div class="money-check-actions">
-    <a class="money-check-action primary" href="#checklistStart">להתחיל את הבדיקה</a>
+    <a class="money-check-action primary" href="#focusedChecks">לבחור בדיקה ממוקדת</a>
+    <a class="money-check-action" href="#checklistStart">לסריקה של 30 דקות</a>
     <a class="money-check-action" href="#sourcesTrust">מקורות וגבולות</a>
     <a class="money-check-action" href="#" onclick="window.print(); return false;">להדפסה / PDF</a>
+  </div>
+</section>
+
+<section id="focusedChecks" class="money-check-next" aria-labelledby="focusedChecksTitle">
+  <p class="eyebrow">בדיקות ממוקדות</p>
+  <h2 id="focusedChecksTitle">רוצים בדיקה קטנה במקום צ׳ק־ליסט?</h2>
+  <p>בדיקת 30 הדקות היא שער. אם כבר זיהיתם אזור אחד שמעניין אתכם, אפשר להתחיל מכלי קטן שמחזיר מספר או שאלה להמשך.</p>
+  <div class="work-room-grid compact">
+    <a class="work-room" href="{{ '/tools/subscriptions-cost-check/' | relative_url }}">
+      <span>כמה עולים לי המנויים?</span>
+      <small>הכניסו כמה חיובים חוזרים וקבלו סך חודשי, סך שנתי ורשימת “לבדיקה השבוע”.</small>
+    </a>
+    <article class="work-room"><span>עמלות בנק: כמה זה בשנה?</span><small>בקרוב: להפוך עמלות חודשיות/שנתיות לשאלה טובה לבנק.</small></article>
+    <article class="work-room"><span>דמי ניהול בפנסיה: שני מספרים</span><small>בקרוב: הכנה לשיחה — מהפקדה ומהצבירה, בלי המלצת מעבר.</small></article>
   </div>
 </section>
 
@@ -275,6 +290,9 @@ lang: he
       <label class="money-check-task"><input type="checkbox"><span>בדקו דרך איפה מבטלים: הספק, Apple, Google, PayPal או חברת האשראי.<small>לא כל חיוב מופיע במקום שבו נרשמתם אליו.</small></span></label>
     </div>
     <p class="money-check-caveat">לא קובעים שחיוב “לא חוקי” בלי בדיקה. קודם מזהים, ואז בודקים תנאי ביטול.</p>
+    <div class="money-check-actions">
+      <a class="money-check-action primary" href="{{ '/tools/subscriptions-cost-check/' | relative_url }}">להמשיך לכלי המנויים</a>
+    </div>
   </article>
 </section>
 
