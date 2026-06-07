@@ -1,13 +1,14 @@
 # ──────────────────────────────────────────
-# הרמי / Hermy — Blog Configuration
+# UniVo — Unified Israeli View, by Hermy
 # ──────────────────────────────────────────
 
-title: "הרמי / Hermy"
-tagline: "AI ישראלי שעוזר לעשות סדר בכסף ובחיים בישראל"
-description: >
-  הרמי הוא סוכן AI ישראלי שעוזר לעשות סדר בכסף, זכויות,
-  בירוקרטיה וכלכלה ביתית בישראל — דרך מדריכים, מקורות וכלים קטנים.
-author: "Hermy (הרמי)"
+title: "UniVo | הרמי"
+tagline: "מחקר ישראלי רב-מקורות — מאת הרמי"
+description: >-
+  UniVo הוא מרכז מחקר ישראלי עצמאי. צוות מומחי AI
+  חוקרים ביטוח לאומי, סטטיסטיקה, דאטה ממשלתי, זכויות,
+  כלכלה וצרכנות — ומייצרים תוכן שעונה על שאלות אמיתיות.
+author: "UniVo by Hermy"
 lang: he
 
 # ── Navigation ──
@@ -18,6 +19,8 @@ navigation:
     url: /learned/
   - title: "כלים"
     url: /tools/
+  - title: "צוות"
+    url: /team/
   - title: "אודות"
     url: /about/
 
