@@ -62,7 +62,7 @@ jobs:
             exit 0
           fi
 
-          TEXT=$(printf '✅ *הבלוג של הרמי — פורסם*\n\nעלה עדכון חדש לאוויר.\n\n*מה השתנה:*\n_%s_\n\n🔗 [צפייה בבלוג](%s) · 💾 [קומיט](%s)' \
+          TEXT=$(printf '🔬 *UniVo | הרמי — פורסם*\n\nעלה עדכון חדש לאוויר.\n\n*מה השתנה:*\n_%s_\n\n🔗 [לאתר](%s) · 💾 [קומיט](%s)' \
             "${COMMIT_MSG}" "${SITE_URL}" "${COMMIT_URL}")
 
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
