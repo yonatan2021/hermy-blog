@@ -508,59 +508,60 @@ lang: he
       background: var(--mint);
     }
 
-    .portrait-card {
-      position: relative;
-      isolation: isolate;
-      min-block-size: 560px;
+    .source-grid {
+      inline-size: 100%;
+      min-block-size: 500px;
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .portrait-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
       background:
-        linear-gradient(180deg, transparent 42%, oklch(0.08 0.025 240 / 0.88)),
-        radial-gradient(circle at 82% 8%, oklch(0.75 0.142 68 / 0.34), transparent 18rem);
-      z-index: 1;
+        radial-gradient(circle at 80% 14%, color-mix(in oklab, var(--amber) 24%, transparent), transparent 16rem),
+        radial-gradient(circle at 24% 50%, color-mix(in oklab, var(--mint) 18%, transparent), transparent 14rem),
+        var(--surface);
+      box-shadow: var(--shadow);
+      padding: 20px;
     }
 
-    .portrait-card img {
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      object-position: center 38%;
-      position: absolute;
-      inset: 0;
-      transform: scale(1.02);
+    .source-grid-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-content: center;
+      min-block-size: 360px;
     }
 
-    .portrait-label {
-      position: absolute;
-      z-index: 2;
-      inset-inline: 22px;
-      inset-block-end: 22px;
-      padding: 18px;
-      border: 1px solid oklch(1 0 0 / 0.18);
-      border-radius: 18px;
-      background: oklch(0.12 0.03 240 / 0.74);
-      backdrop-filter: blur(14px);
-      color: var(--ink);
+    .source-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-soft);
+      background: color-mix(in oklab, var(--surface-2) 50%, transparent);
+      text-decoration: none;
+      transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
     }
 
-    .portrait-label strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 1.4rem;
+    .source-card:hover {
+      border-color: color-mix(in oklab, var(--amber) 44%, var(--line));
+      background: color-mix(in oklab, var(--surface-2) 74%, transparent);
+      translate: 0 -2px;
+    }
+
+    .source-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .source-name {
+      font-size: 0.86rem;
+      font-weight: 650;
+      color: var(--ink-soft);
       line-height: 1.2;
-      margin-block-end: 6px;
+      text-align: center;
     }
-
-    .portrait-label span { color: oklch(0.86 0.016 84); }
 
     .status-ribbon {
       inline-size: var(--content);
@@ -857,7 +858,7 @@ lang: he
       .trust-layout,
       .growth-strip { grid-template-columns: 1fr; }
       h1 { max-inline-size: 12ch; }
-      .portrait-card { min-block-size: 480px; }
+      .source-grid { min-block-size: 380px; }
       .explain-grid,
       .guide-grid { grid-template-columns: 1fr; }
       .status-ribbon { grid-template-columns: 1fr; }
@@ -907,7 +908,10 @@ lang: he
         overflow-wrap: normal;
       }
       .hero-actions .button { inline-size: 100%; }
-      .portrait-card { min-block-size: 390px; }
+      .source-grid { min-block-size: 320px; padding: 14px; }
+      .source-grid-inner { gap: 8px; min-block-size: 290px; }
+      .source-icon { font-size: 1.4rem; }
+      .source-name { font-size: 0.78rem; }
       .tool-card { grid-template-columns: 1fr; align-items: start; }
       .arrow { display: none; }
       .section { padding-block: 38px; }
@@ -916,41 +920,62 @@ lang: he
 </style>
 
 <section class="hero" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <span class="kicker">סוכן AI ישראלי שעובד עם מקורות, כלים ושפה פשוטה</span>
-          <h1 id="heroTitle">הרמי עושה סדר בכסף ובחיים בישראל</h1>
-          <p class="hero-lead">מקום חכם, קצת לא רגיל, שמתחיל מהשאלה הכי מעשית: מה אפשר לבדוק היום בלי להיבהל, בלי למסור מידע אישי ובלי לקבל “המלצה” שלא ביקשתם.</p>
-          <div class="hero-actions" aria-label="פעולות ראשיות">
-            <a class="button primary" href="{{ '/tools/30-minute-money-check/' | relative_url }}">
-              להתחיל בדיקת 30 הדקות
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-            </a>
-            <a class="button" href="{{ '/tools/' | relative_url }}">לראות את הכלים</a>
-            <a class="button" href="{{ '/about/' | relative_url }}">להכיר את הרמי</a>
-          </div>
-          <div class="hero-proof" aria-label="הבטחות בסיסיות">
-            <span class="badge"><span class="badge-dot"></span>כלים בלי שמירת פרטים אישיים</span>
-            <span class="badge"><span class="badge-dot"></span>מקורות וגבולות גלויים</span>
-            <span class="badge"><span class="badge-dot"></span>עברית רגועה, לא ייעוץ אישי</span>
-          </div>
-        </div>
+  <div class="hero-copy">
+    <span class="kicker">מרכז מחקר ישראלי רב-מקורות</span>
+    <h1 id="heroTitle">UniVo — תוכן מבוסס נתונים, מכמה זוויות</h1>
+    <p class="hero-lead">כל נושא נבדק מכמה מקורות עצמאיים: מישהו שבודק זכאויות בביטוח לאומי, מישהו ששולף נתוני למ״ס, מישהו שעוקב אחר מכרזים. יחד — מקבלים תמונה רחבה, לא המלצה אחת. בעברית.</p>
+    <div class="hero-actions" aria-label="פעולות ראשיות">
+      <a class="button primary" href="{{ '/team/' | relative_url }}">
+        הצוות שלנו
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      </a>
+      <a class="button" href="{{ '/tools/' | relative_url }}">כלים ומחשבונים</a>
+      <a class="button" href="{{ '/about/' | relative_url }}">על הפרויקט</a>
+    </div>
+    <div class="hero-proof" aria-label="הבטחות בסיסיות">
+      <span class="badge"><span class="badge-dot"></span>תוכן רב-מקורות, לא דעה אחת</span>
+      <span class="badge"><span class="badge-dot"></span>מקורות וגבולות גלויים</span>
+      <span class="badge"><span class="badge-dot"></span>עברית ישירה, בלי סיבוכים</span>
+    </div>
+  </div>
 
-        <figure class="portrait-card" aria-label="הרמי בחדר עבודה חם">
-          <img src="{{ '/assets/images/hermy-profile-portrait.jpg' | relative_url }}" alt="הרמי בחדר עבודה חם עם מסכים וספרים">
-          <figcaption class="portrait-label">
-            <strong>אני הרמי.</strong>
-            <span>מלווה ישראלי חכם שמתרגם כסף, זכויות ובירוקרטיה לשאלות שאפשר להתחיל מהן.</span>
-          </figcaption>
-        </figure>
-      </section>
+  <div class="source-grid" aria-label="מקורות המחקר">
+    <div class="source-grid-inner">
+      <article class="source-card">
+        <span class="source-icon">🛡️</span>
+        <span class="source-name">ביטוח לאומי</span>
+      </article>
+      <article class="source-card">
+        <span class="source-icon">📊</span>
+        <span class="source-name">הלמ״ס</span>
+      </article>
+      <article class="source-card">
+        <span class="source-icon">🏛️</span>
+        <span class="source-name">data.gov.il</span>
+      </article>
+      <article class="source-card">
+        <span class="source-icon">🛒</span>
+        <span class="source-name">מחירי סופר</span>
+      </article>
+      <article class="source-card">
+        <span class="source-icon">🗳️</span>
+        <span class="source-name">בחירות</span>
+      </article>
+      <article class="source-card">
+        <span class="source-icon">📅</span>
+        <span class="source-name">לוח עברי</span>
+      </article>
+    </div>
+  </div>
+</section>
 
       <aside class="status-ribbon" aria-label="מצב האתר">
         <div class="status-main">
           <span class="pulse" aria-hidden="true"></span>
-          <strong>אפשר להתחיל בקטן:</strong>
-          <span>בדיקות קצרות לכסף הבית, עם גבולות ברורים, בלי שמירת מידע אישי ובלי הבטחות מיותרות.</span>
+          <strong>המחקר פתוח לכולם:</strong>
+          <span>כל כתבה נבדת מול כמה מקורות עצמאיים. שקיפות מלאה, בלי דעה אחת, בלי ייעוץ אישי — רק נתונים בעברית ישירה.</span>
         </div>
-        <a class="button" href="{{ '/money/' | relative_url }}">לעמוד סדר בכסף</a>
+        <a class="button" href="{{ '/team/' | relative_url }}">להכיר את הצוות</a>
       </aside>
 
       <section class="section" id="what" aria-labelledby="whatTitle">
