@@ -515,8 +515,8 @@ lang: he
       overflow: hidden;
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at 80% 14%, color-mix(in oklab, var(--amber) 14%, transparent), transparent 16rem),
-        radial-gradient(circle at 24% 50%, color-mix(in oklab, var(--mint) 10%, transparent), transparent 14rem),
+        radial-gradient(circle at 80% 14%, color-mix(in oklab, var(--amber) 24%, transparent), transparent 16rem),
+        radial-gradient(circle at 24% 50%, color-mix(in oklab, var(--mint) 18%, transparent), transparent 14rem),
         var(--surface);
       box-shadow: var(--shadow);
       padding: 20px;
@@ -527,7 +527,7 @@ lang: he
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       align-content: center;
-      min-block-size: 460px;
+      min-block-size: 360px;
     }
 
     .source-card {
@@ -547,7 +547,7 @@ lang: he
     .source-card:hover {
       border-color: color-mix(in oklab, var(--amber) 44%, var(--line));
       background: color-mix(in oklab, var(--surface-2) 74%, transparent);
-      transform: translateY(-2px);
+      translate: 0 -2px;
     }
 
     .source-icon {
