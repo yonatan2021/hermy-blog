@@ -19,6 +19,8 @@ navigation:
     url: /learned/
   - title: "כלים"
     url: /tools/
+  - title: "מחקרים"
+    url: /archive/
   - title: "צוות"
     url: /team/
   - title: "אודות"

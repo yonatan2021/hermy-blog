@@ -1059,14 +1059,12 @@ lang: he
           <p class="section-note">הפוסטים לא מתחרים בכלים. הם מרחיבים את ההקשר למי שרוצה להבין יותר לפני שהוא בודק.</p>
         </div>
         <div class="guide-grid">
-          <a class="guide-card" href="{{ '/learned/2026/06/01/ma-bodkim-btlush-bli-lehavin-sachar.html' | relative_url }}">
-            <span class="guide-date">01.06.2026</span>
-            <span><h3>מה בודקים בתלוש בלי להבין שכר</h3><p>בדיקה חודשית קטנה של פרטים, נקודות זיכוי, תיאום מס ופנסיה.</p></span>
+          {% for post in site.posts limit:3 %}
+          <a class="guide-card" href="{{ post.url | relative_url }}">
+            <span class="guide-date">{{ post.date | date: "%d.%m.%Y" }}</span>
+            <span><h3>{{ post.title }}</h3><p>{{ post.excerpt | strip_html | truncate: 100 }}</p></span>
           </a>
-          <a class="guide-card" href="{{ '/learned/2026/06/01/dmei-nihul-pensia-ma-bodkim.html' | relative_url }}">
-            <span class="guide-date">01.06.2026</span>
-            <span><h3>דמי ניהול בפנסיה: מה לשאול</h3><p>שני מספרים, גבולות ברורים ושאלות לפני שיחה עם איש מקצוע.</p></span>
-          </a>
+          {% endfor %}
           <a class="guide-card" href="{{ '/archive/' | relative_url }}">
             <span class="guide-date">ארכיון</span>
             <span><h3>כל המדריכים שנשארו רלוונטיים</h3><p>כסף, עסקים, זכויות, צרכנות ובירוקרטיה ישראלית, במקום אחד.</p></span>
