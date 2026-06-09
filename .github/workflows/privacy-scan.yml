@@ -55,6 +55,7 @@ jobs:
               "PUBLICATION_POLICY.md",
               ".github/pull_request_template.md",
               ".github/workflows/privacy-scan.yml",
+              ".githooks/pre-commit",
               "privacy-policy.md",
               "terms-of-service.md",
               "boundaries.md",
