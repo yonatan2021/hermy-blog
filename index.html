@@ -75,6 +75,11 @@ lang: he
   line-height: 1;
 }
 
+.logo-icon svg {
+  inline-size: 22px;
+  block-size: 22px;
+}
+
 .logo-text {
   color: var(--ink);
   font-family: var(--font-display);
@@ -891,7 +896,7 @@ lang: he
       .site-nav a,
       .nav a {
         flex: 1 1 auto;
-        padding-inline: 10px;
+        padding-inline: 8px;
       }
       .hero {
         padding-block-start: 34px;
@@ -904,17 +909,23 @@ lang: he
       .kicker { flex-wrap: wrap; }
       h1 {
         font-size: clamp(2.15rem, 11vw, 3.2rem);
-        max-inline-size: 9.5ch;
-        overflow-wrap: normal;
+        max-inline-size: 100%;
+        overflow-wrap: break-word;
       }
       .hero-actions .button { inline-size: 100%; }
-      .source-grid { min-block-size: 320px; padding: 14px; }
-      .source-grid-inner { gap: 8px; min-block-size: 290px; }
+      .source-grid { min-block-size: 250px; padding: 14px; }
+      .source-grid-inner { gap: 8px; min-block-size: 220px; }
       .source-icon { font-size: 1.4rem; }
       .source-name { font-size: 0.78rem; }
+      .source-card { padding: 16px 12px; }
       .tool-card { grid-template-columns: 1fr; align-items: start; }
       .arrow { display: none; }
       .section { padding-block: 38px; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-dot { display: none; }
+      .footer-links { gap: 8px 14px; }
     }
 
 </style>
