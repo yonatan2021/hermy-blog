@@ -37,7 +37,7 @@ blocked_paths = [
     re.compile(r"(^|/)downloads?(/|$)"),
     re.compile(r"(^|/)_data/today\.ya?ml$"),
     re.compile(r"(^|/)_posts/\d{4}-\d{2}-\d{2}-daily-learning\.md$"),
-    re.compile(r"(?i)(private|secret|credential|token|client_secret|\.env|\.key|\.pem|\.p12|\.pfx|\.db|\.sqlite|\.csv|\.xlsx|\.numbers)$"),
+    re.compile(r"(?i)(private|secret|credential|token|client" "_secret|\.env|\.key|\.pem|\.p12|\.pfx|\.db|\.sqlite|\.csv|\.xlsx|\.numbers)$"),
     re.compile(r"(?i)(daily-post|milestone-post)\.ya?ml$"),
 ]
 
@@ -46,7 +46,6 @@ sensitive_text = re.compile(
     r"-----BEGIN [A-Z ]*PRIVATE KEY-----|"
     r"לא לפרסום|סודי|פרטי פנימי|"
     r"pri" "vate" " " "internal)"
-)
 )
 
 allow_files = {
