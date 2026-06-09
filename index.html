@@ -892,6 +892,7 @@ lang: he
         justify-content: stretch;
         flex-wrap: wrap;
         inline-size: 100%;
+        gap: 8px;
       }
       .site-nav a,
       .nav a {
@@ -926,6 +927,24 @@ lang: he
     @media (max-width: 480px) {
       .footer-dot { display: none; }
       .footer-links { gap: 8px 14px; }
+      .hero-actions .button {
+        inline-size: auto;
+        flex: 1 1 auto;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .site-nav,
+      .nav {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .site-nav a,
+      .nav a {
+        flex: 1 1 100%;
+        text-align: center;
+        padding-inline: 6px;
+      }
     }
 
 </style>
