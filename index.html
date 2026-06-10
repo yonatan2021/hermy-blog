@@ -282,10 +282,13 @@ lang: he
         radial-gradient(circle at 86% 4%, oklch(0.75 0.142 68 / 0.18), transparent 24rem),
         linear-gradient(180deg, var(--canvas), var(--canvas-2) 46%, var(--canvas));
       color: var(--ink-soft);
-      line-height: 1.72;
+      line-height: 1.78;
       min-height: 100vh;
       text-align: start;
-      word-spacing: 0.035em;
+      word-spacing: 0.04em;
+      letter-spacing: 0.008em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body::before {
@@ -443,6 +446,7 @@ lang: he
     h1 {
       font-size: clamp(2.55rem, 7vw, 5.75rem);
       max-inline-size: 10.8ch;
+      text-shadow: 0 0 60px oklch(0.75 0.142 68 / 0.06), 0 0 120px oklch(0.75 0.142 68 / 0.03);
     }
 
     .hero-lead {
@@ -1108,6 +1112,7 @@ lang: he
     @media (prefers-reduced-motion: reduce) {
       .entrance-active .hero-entrance,
       .entrance-active .source-card,
+      .entrance-active .body-entrance,
       .explain-grid,
       .tools-stage,
       .trust-layout,
@@ -1118,8 +1123,284 @@ lang: he
         animation: none !important;
         transition: none !important;
       }
-      .source-card:hover .source-icon {
+      .source-card:hover .source-icon,
+      .source-card .source-icon {
         animation: none !important;
+      }
+      .entrance-active .source-card .source-icon {
+        animation: none !important;
+      }
+      .button svg,
+      .tool-card .arrow {
+        transform: none !important;
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════ */
+    /*  VISUAL EVOLUTION — TYPOGRAPHY, ANIMATIONS, ATMOSPHERE  */
+    /* ════════════════════════════════════════════════════════ */
+
+    /* ─── 1. TYPOGRAPHY — Section heading accents ─── */
+
+    .section-head h2 {
+      position: relative;
+    }
+    .section-head h2::after {
+      content: "";
+      position: absolute;
+      inline-size: 48px;
+      block-size: 3px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--amber), color-mix(in oklab, var(--mint) 62%, var(--amber)));
+      inset-block-end: -10px;
+      inset-inline-start: 0;
+    }
+    [data-theme="light"] .section-head h2::after {
+      background: linear-gradient(90deg, var(--amber), color-mix(in oklab, var(--mint) 72%, var(--amber)));
+    }
+
+    /* Growth strip heading accent */
+    .growth-strip h2 {
+      position: relative;
+    }
+    .growth-strip h2::after {
+      content: "";
+      position: absolute;
+      inline-size: 40px;
+      block-size: 3px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--amber), color-mix(in oklab, var(--mint) 62%, var(--amber)));
+      inset-block-end: -8px;
+      inset-inline-start: 0;
+    }
+
+    /* ─── 2. VISUAL CONTENT — Section dividers ─── */
+
+    .section + .section::before,
+    .status-ribbon + .section::before {
+      content: "";
+      display: block;
+      inline-size: 60px;
+      block-size: 2px;
+      border-radius: 99px;
+      margin-block-end: 22px;
+      background: linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--amber) 48%, transparent),
+        color-mix(in oklab, var(--mint) 48%, transparent)
+      );
+    }
+
+    /* ─── 3. ANIMATIONS — Body entrance fade ─── */
+
+    .entrance-active .body-entrance {
+      opacity: 0;
+      animation: entranceFadeUp 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      animation-delay: 80ms;
+    }
+
+    /* ─── 4. ANIMATIONS — Hero gradient shift ─── */
+
+    .hero-gradient-animate {
+      animation: heroGradientShift 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* Parallax-like subtle drift between hero-copy and source-grid */
+    .hero-copy,
+    .source-grid {
+      transition: transform 0.15s ease-out;
+    }
+
+    /* ─── 5. ANIMATIONS — Emoji float / breathing ─── */
+
+    .source-icon {
+      display: inline-block;
+    }
+
+    .source-card .source-icon {
+      animation: emojiFloat 4s ease-in-out infinite;
+    }
+    .source-card:nth-child(2) .source-icon,
+    .source-card:nth-child(4) .source-icon,
+    .source-card:nth-child(6) .source-icon {
+      animation-delay: -1.2s;
+    }
+    .source-card:nth-child(3) .source-icon,
+    .source-card:nth-child(5) .source-icon {
+      animation-delay: -2.4s;
+    }
+
+    @keyframes emojiFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-4px) scale(1.05); }
+    }
+
+    /* ─── 6. ANIMATIONS — Arrow button icon spin ─── */
+
+    .button svg {
+      transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .button:hover svg {
+      transform: translateX(-4px);
+    }
+    .button.primary:hover svg {
+      transform: translateX(-5px);
+    }
+
+    .tool-card .arrow {
+      transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), background 200ms ease, border-color 200ms ease;
+    }
+    .tool-card:hover .arrow {
+      transform: translateX(-4px);
+      background: color-mix(in oklab, var(--amber) 22%, var(--surface));
+      border-color: color-mix(in oklab, var(--amber) 44%, var(--line));
+    }
+
+    /* ─── 7. ANIMATIONS — Enhanced status ribbon pulse ─── */
+
+    .pulse {
+      animation: pulseEnhanced 2.4s ease-out infinite;
+    }
+
+    @keyframes pulseEnhanced {
+      0% {
+        box-shadow: 0 0 0 0 oklch(0.76 0.116 174 / 0.36),
+                    0 0 8px 0 oklch(0.76 0.116 174 / 0.12);
+      }
+      50% {
+        box-shadow: 0 0 0 8px oklch(0.76 0.116 174 / 0.15),
+                    0 0 16px 4px oklch(0.76 0.116 174 / 0.06);
+      }
+      100% {
+        box-shadow: 0 0 0 14px oklch(0.76 0.116 174 / 0),
+                    0 0 28px 8px oklch(0.76 0.116 174 / 0);
+      }
+    }
+
+    /* ─── 8. ANIMATIONS — Coordinated card hover states ─── */
+
+    .explain-card,
+    .guide-card {
+      transition: border-color 250ms ease, background 250ms ease, transform 250ms ease,
+                  box-shadow 250ms ease;
+    }
+    .explain-card:hover,
+    .guide-card:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in oklab, var(--amber) 48%, var(--line));
+      background: color-mix(in oklab, var(--surface-2) 76%, transparent);
+      box-shadow: 0 8px 28px oklch(0.06 0.025 240 / 0.18);
+    }
+
+    .trust-panel {
+      transition: border-color 250ms ease, background 250ms ease, transform 250ms ease;
+    }
+    .trust-panel:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--amber) 34%, var(--line));
+    }
+
+    /* ─── 9. ANIMATIONS — Theme toggle full coverage ─── */
+
+    .explain-card,
+    .tool-card,
+    .guide-card,
+    .trust-panel,
+    .source-board,
+    .source-card,
+    .badge,
+    .site-footer,
+    .growth-strip,
+    .status-ribbon {
+      transition: background 350ms ease, border-color 350ms ease, color 250ms ease;
+    }
+
+    /* ─── 10. VISUAL — Source grid refinements ─── */
+
+    .source-card {
+      position: relative;
+    }
+
+    .source-card::after {
+      content: attr(data-article-count);
+      position: absolute;
+      inset-block-end: 6px;
+      inset-inline-end: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 650;
+      background: color-mix(in oklab, var(--amber) 22%, var(--surface-2));
+      color: var(--amber-strong);
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(3px);
+      transition: opacity 220ms ease, transform 220ms ease;
+      pointer-events: none;
+    }
+    .source-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── 11. VISUAL — Footer enhancement ─── */
+
+    .site-footer {
+      position: relative;
+      overflow: hidden;
+    }
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 50%, color-mix(in oklab, var(--amber) 12%, transparent), transparent 20rem),
+        radial-gradient(circle at 80% 30%, color-mix(in oklab, var(--mint) 10%, transparent), transparent 18rem);
+      opacity: 0.6;
+    }
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-links a {
+      transition: color 220ms ease;
+      position: relative;
+    }
+    .footer-links a:hover {
+      color: var(--amber);
+    }
+
+    /* ─── 12. RESPONSIVE — Adjust for new features ─── */
+
+    @media (max-width: 900px) {
+      .section + .section::before,
+      .status-ribbon + .section::before {
+        inline-size: 44px;
+      }
+      .section-head h2::after {
+        inline-size: 36px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .section + .section::before,
+      .status-ribbon + .section::before {
+        inline-size: 32px;
+      }
+      .source-card::after {
+        font-size: 0.6rem;
+        padding: 1px 6px;
       }
     }
 
@@ -1147,27 +1428,27 @@ lang: he
 
   <div class="source-grid" aria-label="מקורות המחקר">
     <div class="source-grid-inner">
-      <article class="source-card primary" style="--i: 0">
+      <article class="source-card primary" style="--i: 0" data-article-count="24">
         <span class="source-icon">🛡️</span>
         <span class="source-name">ביטוח לאומי</span>
       </article>
-      <article class="source-card primary" style="--i: 1">
+      <article class="source-card primary" style="--i: 1" data-article-count="37">
         <span class="source-icon">📊</span>
         <span class="source-name">הלמ״ס</span>
       </article>
-      <article class="source-card" style="--i: 2">
+      <article class="source-card" style="--i: 2" data-article-count="18">
         <span class="source-icon">🏛️</span>
         <span class="source-name">data.gov.il</span>
       </article>
-      <article class="source-card" style="--i: 3">
+      <article class="source-card" style="--i: 3" data-article-count="12">
         <span class="source-icon">🛒</span>
         <span class="source-name">מחירי סופר</span>
       </article>
-      <article class="source-card" style="--i: 4">
+      <article class="source-card" style="--i: 4" data-article-count="9">
         <span class="source-icon">🗳️</span>
         <span class="source-name">בחירות</span>
       </article>
-      <article class="source-card" style="--i: 5">
+      <article class="source-card" style="--i: 5" data-article-count="15">
         <span class="source-icon">📅</span>
         <span class="source-name">לוח עברי</span>
       </article>
