@@ -133,3 +133,7 @@ _screenshots/
 *.screenshot.png
 *.screen.png
 *.capture.png
+Gemfile.dev
+Gemfile.dev.lock
+_config.dev.yml
+_plugins/
