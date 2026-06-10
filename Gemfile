@@ -1,5 +1,8 @@
 source "https://rubygems.org"
 
+gem "csv"
+gem "bigdecimal"
+gem "webrick"
 gem "jekyll", "~> 3.9"
 gem "jekyll-theme-hacker"
 gem "jekyll-feed"
